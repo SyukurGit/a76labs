@@ -1,13 +1,12 @@
 import Link from "next/link";
+import Image from "next/image"; // <--- Import Image
 import { db } from "@/lib/db";
 import { siteSettings } from "@/lib/schema";
 import { Github, Twitter, Mail } from "lucide-react";
 
-// Helper untuk ambil data settings dari DB
 async function getSettings() {
   const data = await db.select().from(siteSettings);
   
-  // Convert Array ke Object biar gampang dipanggil (misal: settings.social_github)
   const settings: Record<string, string> = {};
   data.forEach((item) => {
     settings[item.key] = item.value;
@@ -23,9 +22,21 @@ export async function Footer() {
     <footer className="w-full border-t border-gray-100 py-12 mt-20 bg-white">
       <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         
-        {/* Kiri: Brand & Deskripsi */}
+        {/* Kiri: Brand Logo & Deskripsi */}
         <div className="text-center md:text-left">
-          <h3 className="font-bold text-lg">{settings.site_title || "A76LABS"}</h3>
+          
+          {/* --- BAGIAN INI DIGANTI DENGAN LOGO --- */}
+          <div className="relative h-14 w-40 mx-auto md:mx-0 mb-4">
+            <Image 
+  src="/a76trans.png" 
+  alt={settings.site_title || "A76LABS"} 
+  fill 
+  className="object-contain scale-150"
+/>
+
+          </div>
+          {/* -------------------------------------- */}
+
           <p className="text-xs text-gray-500 mt-1 max-w-xs">
             {settings.site_description || "Building practical digital products."}
           </p>
@@ -34,10 +45,8 @@ export async function Footer() {
           </p>
         </div>
         
-        {/* Kanan: Social Links Dynamic */}
+        {/* Kanan: Social Links (Tetap Sama) */}
         <div className="flex items-center gap-6">
-          
-          {/* Email Link */}
           {settings.contact_email && (
             <a 
               href={`mailto:${settings.contact_email}`} 
@@ -48,7 +57,6 @@ export async function Footer() {
             </a>
           )}
 
-          {/* GitHub Link */}
           {settings.social_github && (
             <a 
               href={settings.social_github} 
@@ -61,7 +69,6 @@ export async function Footer() {
             </a>
           )}
 
-          {/* Twitter Link */}
           {settings.social_twitter && (
             <a 
               href={settings.social_twitter} 
@@ -73,7 +80,6 @@ export async function Footer() {
               <Twitter size={20} />
             </a>
           )}
-
         </div>
       </div>
     </footer>
