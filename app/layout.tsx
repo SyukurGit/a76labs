@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google"; // Import font
 import "./globals.css";
 
+
 // 1. Setup Font Utama (Inter)
 const inter = Inter({ 
   subsets: ["latin"],
@@ -16,9 +17,31 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
+// GANTI BAGIAN METADATA INI:
 export const metadata: Metadata = {
-  title: "A76LABS",
-  description: "Independent Product Lab",
+  // Ganti URL ini dengan domain Vercel aslimu nanti saat deploy
+  metadataBase: new URL('https://a76labs.vercel.app'), 
+  
+  title: {
+    default: "A76LABS - Independent Product Lab",
+    template: "%s | A76LABS", // %s akan diganti judul per halaman
+  },
+  description: "A showcase of practical digital products, experiments, and engineering labs. Built with Next.js and Turso.",
+  keywords: ["Product Lab", "SaaS", "Next.js", "Turso", "Software Engineering", "Indie Hacker"],
+  authors: [{ name: "A76LABS Team" }],
+  openGraph: {
+    title: "A76LABS",
+    description: "Building practical digital products.",
+    url: 'https://a76labs.vercel.app',
+    siteName: 'A76LABS',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'A76LABS',
+    description: 'Independent Product Lab',
+  },
 };
 
 export default function RootLayout({
