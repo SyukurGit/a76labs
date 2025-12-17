@@ -44,3 +44,11 @@ export const messages = sqliteTable("messages", {
   isRead: integer("is_read", { mode: "boolean" }).default(false),
   createdAt: text("created_at").default(sql`CURRENT_TIMESTAMP`),
 });
+
+// 5. SITE SETTINGS (Key-Value Store)
+// Contoh: key="site_title", value="A76LABS"
+// Contoh: key="contact_email", value="hello@a76labs.com"
+export const siteSettings = sqliteTable("site_settings", {
+  key: text("key").primaryKey(), // Primary Key (Unik)
+  value: text("value").notNull(),
+});
