@@ -1,4 +1,5 @@
 import * as dotenv from "dotenv";
+import bcrypt from "bcryptjs"; 
 
 // 1. Load Environment Variables DULUAN
 dotenv.config({ path: ".env.local" });
@@ -7,14 +8,23 @@ async function main() {
   console.log("🌱 Seeding database...");
 
   // 2. Import DB & Schema DI DALAM fungsi async
-  // Ini trik agar env vars terbaca dulu sebelum koneksi dibuat
   const { db } = await import("../lib/db");
-  const { products, labs } = await import("../lib/schema");
+  const { products, labs, users } = await import("../lib/schema");
 
   try {
-    // 3. Masukkan data dummy
+    // --- SEED ADMIN USER ---
+    // Cek dulu apakah admin sudah ada agar tidak error duplicate
+    // (Atau gunakan onConflictDoNothing jika kolom email unique)
+    console.log("👤 Seeding admin user...");
+    const hashedPassword = await bcrypt.hash("admin123", 10);
     
-    // Sample Product
+    await db.insert(users).values({
+      email: "admin@a76labs.com",
+      passwordHash: hashedPassword,
+    }).onConflictDoNothing({ target: users.email }); // <--- INI KUNCINYA
+
+    // --- SEED PRODUCTS ---
+    console.log("📦 Seeding products...");
     await db.insert(products).values([
       {
         slug: "project-alpha",
@@ -36,9 +46,10 @@ async function main() {
         repoUrl: "https://github.com/example/neon",
         isPublished: true,
       },
-    ]);
+    ]).onConflictDoNothing({ target: products.slug }); // <--- Cuma insert kalau slug belum ada
 
-    // Sample Lab Experiment
+    // --- SEED LABS ---
+    console.log("🧪 Seeding labs...");
     await db.insert(labs).values([
       {
         slug: "ai-text-gen",
@@ -47,9 +58,9 @@ async function main() {
         content: "This is an experiment using OpenAI API to generate marketing copy automatically.",
         isPublished: true,
       },
-    ]);
+    ]).onConflictDoNothing({ target: labs.slug }); // <--- Sama di sini
 
-    console.log("✅ Seeding finished successfully!");
+    console.log("✅ Seeding finished successfully! (Existing data was skipped)");
   } catch (error) {
     console.error("❌ Seeding failed:", error);
   } finally {
