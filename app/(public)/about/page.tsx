@@ -7,39 +7,61 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen py-20 px-4 md:px-6">
+    <div className="min-h-screen py-16 px-4 sm:px-6 md:px-8 bg-gray-50/30">
       <div className="container mx-auto max-w-3xl">
-        
-        <h1 className="text-4xl font-extrabold tracking-tight mb-8">
+        {/* Judul Utama dengan Gradient */}
+        <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-10 bg-gradient-to-r from-[#027FDB] to-blue-700 bg-clip-text text-transparent">
           About A76LABS
         </h1>
 
-        <div className="prose prose-lg prose-gray text-gray-600 leading-relaxed">
-          <p className="text-xl text-black font-medium mb-6">
-            We are an independent product lab building practical digital tools.
-          </p>
+        {/* Tagline */}
+        <p className="text-xl text-gray-900 font-medium mb-10 leading-relaxed">
+          We are an independent product lab building practical digital tools.
+        </p>
 
-          <h3 className="text-black font-bold mt-12 mb-4">The Philosophy</h3>
-          <p>
-            Software has become too complex. We believe in returning to the basics: 
-            solving clear problems with simple, maintainable code. 
-            We do not chase trends. We build what is necessary.
+        {/* Bagian: The Philosophy */}
+        <section className="mb-12">
+          <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <span className="w-1 h-5 bg-[#027FDB] rounded-full"></span>
+            The Philosophy
+          </h2>
+          <p className="text-gray-600 leading-relaxed">
+            Software has become too complex. We believe in returning to the basics: solving clear problems with simple, maintainable code. We do not chase trends. We build what is necessary.
           </p>
+        </section>
 
-          <h3 className="text-black font-bold mt-12 mb-4">How We Work</h3>
-          <ul className="list-disc pl-5 space-y-2">
-            <li><strong>Product First:</strong> The code serves the product, not the other way around.</li>
-            <li><strong>Speed:</strong> Ship fast, iterate often.</li>
-            <li><strong>Clarity:</strong> Clear code is better than clever code.</li>
+        {/* Bagian: How We Work */}
+        <section className="mb-12">
+          <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <span className="w-1 h-5 bg-[#027FDB] rounded-full"></span>
+            How We Work
+          </h2>
+          <ul className="space-y-3 text-gray-600">
+            <li className="flex gap-2">
+              <span className="text-[#027FDB] font-medium">•</span>
+              <span><strong className="text-gray-900">Product First:</strong> The code serves the product, not the other way around.</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-[#027FDB] font-medium">•</span>
+              <span><strong className="text-gray-900">Speed:</strong> Ship fast, iterate often.</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-[#027FDB] font-medium">•</span>
+              <span><strong className="text-gray-900">Clarity:</strong> Clear code is better than clever code.</span>
+            </li>
           </ul>
+        </section>
 
-          <h3 className="text-black font-bold mt-12 mb-4">The Stack</h3>
-          <p>
-            We build primarily with Next.js, TypeScript, and SQLite (Turso). 
-            This stack allows us to move fast without managing heavy infrastructure.
+        {/* Bagian: The Stack */}
+        <section>
+          <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+            <span className="w-1 h-5 bg-[#027FDB] rounded-full"></span>
+            The Stack
+          </h2>
+          <p className="text-gray-600 leading-relaxed">
+            We build primarily with <strong className="text-gray-900">Next.js</strong>, <strong className="text-gray-900">TypeScript</strong>, and <strong className="text-gray-900">SQLite (Turso)</strong>. This stack allows us to move fast without managing heavy infrastructure.
           </p>
-        </div>
-
+        </section>
       </div>
     </div>
   );
