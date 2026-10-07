@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import { Save, Loader2, ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { ActionErrorState } from "@/lib/admin-actions";
 
 interface LabFormProps {
   initialData?: {
@@ -12,7 +13,7 @@ interface LabFormProps {
     content: string | null;
     isPublished: boolean | null;
   };
-  action: (prevState: any, formData: FormData) => Promise<any>;
+  action: (prevState: ActionErrorState | undefined, formData: FormData) => Promise<ActionErrorState | undefined>;
 }
 
 export function LabForm({ initialData, action }: LabFormProps) {

@@ -3,41 +3,36 @@
 import { useActionState } from "react";
 import { Save, Loader2, ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { ActionErrorState } from "@/lib/admin-actions";
 
-// Definisikan tipe data agar TypeScript tidak rewel
 interface ProductFormProps {
   initialData?: {
     name: string;
     slug: string;
     tagline: string;
     description: string;
-    status: string; // Ubah type ini jika perlu mencocokkan union type database secara ketat
+    status: string;
     techStack: string | null;
     demoUrl: string | null;
     repoUrl: string | null;
     isPublished: boolean | null;
   };
-  // Action adalah fungsi Server Action yang kita oper dari parent page
-  action: (prevState: any, formData: FormData) => Promise<any>;
+  action: (prevState: ActionErrorState | undefined, formData: FormData) => Promise<ActionErrorState | undefined>;
 }
 
 export function ProductForm({ initialData, action }: ProductFormProps) {
   const [state, formAction, isPending] = useActionState(action, undefined);
 
-  // Helper untuk mengubah JSON string tech_stack kembali jadi string biasa "React, Next.js"
   const formattedTechStack = initialData?.techStack 
     ? JSON.parse(initialData.techStack).join(", ") 
     : "";
 
   return (
     <form action={formAction} className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
-      
-      {/* Header Form */}
       <div className="bg-gray-50 px-8 py-4 border-b border-gray-100 flex justify-between items-center">
         <h2 className="font-bold text-gray-700">
           {initialData ? "Edit Product" : "New Product Details"}
         </h2>
-        {/* Tampilkan error jika ada dari Server Action */}
         {state?.error && (
           <span className="text-red-600 text-xs font-bold bg-red-50 px-2 py-1 rounded">
             {state.error}
@@ -46,7 +41,6 @@ export function ProductForm({ initialData, action }: ProductFormProps) {
       </div>
 
       <div className="p-8 space-y-6">
-        {/* Row 1: Name & Slug */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Product Name</label>
@@ -55,7 +49,7 @@ export function ProductForm({ initialData, action }: ProductFormProps) {
               type="text" 
               required
               defaultValue={initialData?.name}
-              placeholder="e.g. Project Alpha"
+              placeholder="e.g. Dompet Pintar"
               className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
             />
           </div>
@@ -66,13 +60,12 @@ export function ProductForm({ initialData, action }: ProductFormProps) {
               type="text" 
               required
               defaultValue={initialData?.slug}
-              placeholder="project-alpha"
+              placeholder="dompet-pintar"
               className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
             />
           </div>
         </div>
 
-        {/* Row 2: Tagline */}
         <div>
           <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Tagline</label>
           <input 
@@ -85,7 +78,6 @@ export function ProductForm({ initialData, action }: ProductFormProps) {
           />
         </div>
 
-        {/* Row 3: Description */}
         <div>
           <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Full Description</label>
           <textarea 
@@ -98,7 +90,6 @@ export function ProductForm({ initialData, action }: ProductFormProps) {
           />
         </div>
 
-        {/* Row 4: Tech Stack & Status */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Tech Stack (Comma Separated)</label>
@@ -106,7 +97,7 @@ export function ProductForm({ initialData, action }: ProductFormProps) {
               name="techStack" 
               type="text" 
               defaultValue={formattedTechStack}
-              placeholder="React, Tailwind, Turso..."
+              placeholder="Next.js, Go, Tailwind, Turso"
               className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
             />
           </div>
@@ -125,7 +116,6 @@ export function ProductForm({ initialData, action }: ProductFormProps) {
           </div>
         </div>
 
-        {/* Row 5: URLs */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Demo URL</label>
@@ -133,12 +123,12 @@ export function ProductForm({ initialData, action }: ProductFormProps) {
               name="demoUrl" 
               type="url" 
               defaultValue={initialData?.demoUrl || ""}
-              placeholder="https://..."
+              placeholder="https://dompetpintar.a76labs.online"
               className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
             />
           </div>
           <div>
-            <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Repo URL</label>
+            <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">GitHub Repo URL</label>
             <input 
               name="repoUrl" 
               type="url" 
@@ -149,7 +139,6 @@ export function ProductForm({ initialData, action }: ProductFormProps) {
           </div>
         </div>
 
-        {/* Row 6: Visibility Checkbox */}
         <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg border border-gray-100">
           <input 
             type="checkbox" 
@@ -162,10 +151,8 @@ export function ProductForm({ initialData, action }: ProductFormProps) {
             Publish this product? <span className="text-gray-400 font-normal">(Visible to public)</span>
           </label>
         </div>
-
       </div>
 
-      {/* Footer Actions */}
       <div className="px-8 py-4 bg-gray-50 border-t border-gray-100 flex justify-end gap-4">
         <Link 
           href="/admin/products"

@@ -1,80 +1,121 @@
-import { db } from "@/lib/db";
-import { labs } from "@/lib/schema";
-import { desc, eq } from "drizzle-orm";
 import { Metadata } from "next";
+import { Lightbulb } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Labs - A76LABS",
-  description: "Experimental projects, prototypes, and engineering playgrounds.",
+  title: "Labs — R&D Experiments",
+  description: "Focused experiments, prototypes, and technical investigations by A76LABS.",
 };
 
-async function getLabs() {
-  const data = await db
-    .select()
-    .from(labs)
-    .where(eq(labs.isPublished, true))
-    .orderBy(desc(labs.createdAt));
-  return data;
+interface LabItem {
+  id: number;
+  slug: string;
+  title: string;
+  type: "Prototype" | "Experiment" | "Research" | "Archived" | "Maintenance";
+  purpose: string;
+  technologies: string[];
+  learned: string;
 }
 
-export default async function LabsPage() {
-  const experiments = await getLabs();
+const STATIC_LABS: LabItem[] = [
+  {
+    id: 101,
+    slug: "ai-workflow-automation",
+    title: "AI-Assisted Workflow & Schema Orchestration",
+    type: "Experiment",
+    purpose: "Testing deterministic structured data extraction from unstructured event logs and customer requests using small LLM pipelines with strict Zod validation.",
+    technologies: ["TypeScript", "Next.js", "Schema Validation", "Prompt Engineering"],
+    learned: "Decoupling parsing from execution and enforcing rigid JSON schema contracts prevents LLM hallucinations from corrupting persistent state."
+  },
+  {
+    id: 102,
+    slug: "ephemeral-jit-session-engine",
+    title: "Micro-Session Just-in-Time Access Engine",
+    type: "Prototype",
+    purpose: "Lightweight Redis-free ephemeral authorization layer enforcing maximum 15-minute operational session leases on Go backends.",
+    technologies: ["Go", "Gin", "JWT Claims", "Cryptographic Signatures"],
+    learned: "Short-lived cryptographic tokens with signed ticket context eliminate continuous database session lookups while preserving zero-trust guarantees."
+  },
+  {
+    id: 103,
+    slug: "low-overhead-socket-streaming",
+    title: "Low-Footprint WebSocket Telemetry Streamer",
+    type: "Prototype",
+    purpose: "Evaluating socket heartbeat overhead and browser thread memory consumption during continuous 100ms metric bursts in React/D3.",
+    technologies: ["WebSockets", "React 19", "D3.js", "Performance Profiling"],
+    learned: "Direct canvas or D3 DOM-bypassing canvas drawing significantly outperforms SVG re-rendering under high-frequency metric feeds."
+  }
+];
 
+export default function LabsPage() {
   return (
-    <div className="min-h-screen py-16 px-4 sm:px-6 md:px-8 bg-gray-50/50">
+    <div className="min-h-screen py-16 px-4 sm:px-6 md:px-8">
       <div className="container mx-auto max-w-5xl">
-        {/* Header: Tech & Web3 Vibe */}
-        <div className="mb-14">
-          <h1 className="text-4xl font-mono font-bold tracking-tighter mb-3 bg-gradient-to-r from-[#027FDB] to-blue-700 bg-clip-text text-transparent">
-            /labs
+        <div className="mb-14 pb-8 border-b border-gray-100">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-gray-50 text-xs font-mono text-gray-700 mb-4">
+            R&D Space
+          </div>
+          <h1 className="text-4xl font-extrabold tracking-tight text-gray-950 mb-3">
+            Labs & Experiments
           </h1>
-          <p className="text-gray-600 max-w-2xl text-lg font-mono">
-            Experimental projects, prototypes, and raw ideas. <br />
-            <span className="text-gray-400 text-sm">Caution: Things might break here.</span>
+          <p className="text-gray-600 max-w-2xl text-base sm:text-lg leading-relaxed">
+            Focused explorations, architectural prototypes, and engineering experiments. This space is used to validate technical feasibility and workflow ideas before turning them into products.
           </p>
         </div>
 
-        {/* Labs List */}
-        <div className="space-y-5">
-          {experiments.length > 0 ? (
-            experiments.map((lab) => (
-              <div
-                key={lab.id}
-                className="bg-white p-5 sm:p-6 rounded-xl border border-gray-200 hover:border-[#027FDB]/40 transition-colors group"
-              >
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                  <div className="space-y-2.5">
-                    <div className="flex flex-wrap items-center gap-2.5">
-                      <h3 className="text-xl font-bold font-mono text-gray-900 group-hover:text-[#027FDB] transition-colors">
-                        {lab.title}
-                      </h3>
-                      <span
-                        className={`text-[11px] font-bold px-2 py-0.5 rounded border ${
-                          lab.type === "Prototype"
-                            ? "bg-amber-50 text-amber-700 border-amber-200"
-                            : "bg-purple-50 text-purple-700 border-purple-200"
-                        }`}
-                      >
-                        {lab.type}
-                      </span>
-                    </div>
+        <div className="space-y-6">
+          {STATIC_LABS.map((item) => (
+            <div
+              key={item.id}
+              className="p-6 sm:p-7 rounded-2xl border border-gray-200 bg-white hover:border-gray-300 transition-all shadow-sm space-y-4"
+            >
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-2.5">
+                  <h2 className="text-xl font-bold text-gray-950">
+                    {item.title}
+                  </h2>
+                  <span
+                    className={`text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border ${
+                      item.type === "Prototype"
+                        ? "bg-blue-50 text-blue-700 border-blue-200"
+                        : item.type === "Experiment"
+                        ? "bg-purple-50 text-purple-700 border-purple-200"
+                        : "bg-gray-100 text-gray-700 border-gray-200"
+                    }`}
+                  >
+                    {item.type}
+                  </span>
+                </div>
+                <span className="text-xs font-mono text-gray-400">/{item.slug}</span>
+              </div>
 
-                    <p className="text-gray-600 max-w-3xl leading-relaxed text-sm sm:text-base">
-                      {lab.content
-                        ? lab.content.length > 150
-                          ? lab.content.slice(0, 150) + "..."
-                          : lab.content
-                        : "No description provided."}
-                    </p>
-                  </div>
+              <div>
+                <h3 className="text-xs font-mono uppercase tracking-wider text-gray-400 font-semibold mb-1">Purpose</h3>
+                <p className="text-sm text-gray-700 leading-relaxed">
+                  {item.purpose}
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-gray-50 border border-gray-100 space-y-1">
+                <div className="flex items-center gap-1.5 text-xs font-bold text-gray-900">
+                  <Lightbulb size={14} className="text-amber-500" />
+                  <span>Key Technical Takeaway</span>
+                </div>
+                <p className="text-xs text-gray-600 leading-relaxed pl-5">
+                  {item.learned}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-gray-100">
+                <div className="flex flex-wrap gap-1.5">
+                  {item.technologies.map((t) => (
+                    <span key={t} className="text-[11px] font-mono px-2 py-0.5 rounded bg-gray-100 text-gray-700">
+                      {t}
+                    </span>
+                  ))}
                 </div>
               </div>
-            ))
-          ) : (
-            <div className="text-center py-20 border-2 border-dashed border-gray-200 rounded-xl">
-              <p className="font-mono text-gray-400">No experiments in the lab yet.</p>
             </div>
-          )}
+          ))}
         </div>
       </div>
     </div>

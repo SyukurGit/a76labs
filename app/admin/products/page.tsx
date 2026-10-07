@@ -2,85 +2,86 @@ import Link from "next/link";
 import { db } from "@/lib/db";
 import { products } from "@/lib/schema";
 import { desc } from "drizzle-orm";
-import { Edit, Plus, Globe, EyeOff } from "lucide-react"; // Trash2 dihapus karena sudah ada di dalam komponen baru
-import { DeleteProductButton } from "@/components/admin/DeleteProductButton"; // <--- Import komponen baru
+import { Plus, ExternalLink, Edit } from "lucide-react";
+import { DeleteProductButton } from "@/components/admin/DeleteProductButton";
 
 export default async function AdminProductsPage() {
   const allProducts = await db.select().from(products).orderBy(desc(products.createdAt));
 
   return (
-    <div className="p-8 max-w-6xl">
-      {/* ... Header tetap sama ... */}
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl font-bold">Products Management</h1>
+    <div className="space-y-6">
+      <div className="flex justify-between items-center">
+        <div>
+          <h1 className="text-2xl font-bold tracking-tight">Products Management</h1>
+          <p className="text-gray-500 text-sm">Manage your public products showcase here.</p>
+        </div>
         <Link 
-          href="/admin/products/new" 
-          className="bg-black text-white px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-gray-800 transition-all text-sm font-medium"
+          href="/admin/products/new"
+          className="bg-black text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800 transition-all flex items-center gap-2"
         >
-          <Plus size={16} />
-          Add Product
+          <Plus size={16} /> Add Product
         </Link>
       </div>
 
-      <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-        <table className="w-full text-left border-collapse">
-          <thead>
-            {/* ... Header Table tetap sama ... */}
-            <tr className="bg-gray-50 border-b border-gray-100 text-xs uppercase text-gray-500 font-semibold tracking-wider">
-              <th className="p-4">Name</th>
-              <th className="p-4">Status</th>
-              <th className="p-4">Visibility</th>
-              <th className="p-4 text-right">Actions</th>
+      <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+        <table className="w-full text-left text-sm">
+          <thead className="bg-gray-50 text-gray-500 border-b border-gray-100">
+            <tr>
+              <th className="px-6 py-4">Name</th>
+              <th className="px-6 py-4">Status</th>
+              <th className="px-6 py-4">Public URL</th>
+              <th className="px-6 py-4">Published</th>
+              <th className="px-6 py-4 text-right">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-100">
             {allProducts.map((product) => (
-              <tr key={product.id} className="hover:bg-gray-50 transition-colors">
-                <td className="p-4">
-                  <div className="font-bold text-gray-900">{product.name}</div>
-                  <div className="text-xs text-gray-500">/{product.slug}</div>
+              <tr key={product.id} className="hover:bg-gray-50/50">
+                <td className="px-6 py-4 font-semibold text-gray-900">
+                  {product.name}
+                  <span className="block text-xs text-gray-400 font-normal">{product.slug}</span>
                 </td>
-                <td className="p-4">
-                  <span className={`text-xs px-2 py-1 rounded font-bold border ${
-                    product.status === 'Active' ? 'bg-green-50 text-green-700 border-green-200' :
-                    product.status === 'Beta' ? 'bg-blue-50 text-blue-700 border-blue-200' :
-                    'bg-gray-100 text-gray-600 border-gray-200'
+                <td className="px-6 py-4">
+                  <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${
+                    product.status === 'Active' ? 'bg-green-50 text-green-700' :
+                    product.status === 'Beta' ? 'bg-blue-50 text-blue-700' : 'bg-gray-100 text-gray-700'
                   }`}>
                     {product.status}
                   </span>
                 </td>
-                <td className="p-4">
+                <td className="px-6 py-4">
+                  <Link 
+                    href={`/products/${product.slug}`} 
+                    target="_blank"
+                    className="text-gray-500 hover:text-black flex items-center gap-1 text-xs"
+                  >
+                    /products/{product.slug} <ExternalLink size={12} />
+                  </Link>
+                </td>
+                <td className="px-6 py-4">
                   {product.isPublished ? (
-                    <span className="flex items-center gap-1 text-green-600 text-xs font-medium">
-                      <Globe size={14} /> Published
-                    </span>
+                    <span className="text-green-600 text-xs font-semibold">Yes</span>
                   ) : (
-                    <span className="flex items-center gap-1 text-gray-400 text-xs font-medium">
-                      <EyeOff size={14} /> Draft
-                    </span>
+                    <span className="text-gray-400 text-xs">Draft</span>
                   )}
                 </td>
-                <td className="p-4 text-right flex justify-end gap-2">
+                <td className="px-6 py-4 text-right space-x-2">
                   <Link 
                     href={`/admin/products/${product.id}/edit`}
-                    className="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-all"
+                    className="inline-flex p-2 text-gray-400 hover:text-black hover:bg-gray-100 rounded-lg transition-all"
                   >
                     <Edit size={16} />
                   </Link>
-                  
-                  {/* GANTI BAGIAN FORM LAMA DENGAN INI: */}
                   <DeleteProductButton id={product.id} />
-                  
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-        
-        {/* ... Empty state tetap sama ... */}
+
         {allProducts.length === 0 && (
           <div className="p-8 text-center text-gray-500">
-            No products found. Click "Add Product" to start.
+            No products found. Click &quot;Add Product&quot; to start.
           </div>
         )}
       </div>

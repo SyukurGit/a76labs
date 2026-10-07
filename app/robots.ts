@@ -5,8 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/admin/", "/api/"], // Larang Google masuk Admin panel
+      disallow: ["/admin/", "/api/"],
     },
-    sitemap: "https://a76labs.vercel.app/sitemap.xml", // Link ke sitemap langkah 3
+    sitemap: "https://www.a76labs.online/sitemap.xml",
   };
 }

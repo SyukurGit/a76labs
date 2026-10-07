@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer,  } from "drizzle-orm/sqlite-core";
+import { sqliteTable, text, integer } from "drizzle-orm/sqlite-core";
 import { sql } from "drizzle-orm";
 
 // 1. ADMIN USERS
@@ -46,9 +46,9 @@ export const messages = sqliteTable("messages", {
 });
 
 // 5. SITE SETTINGS (Key-Value Store)
-// Contoh: key="site_title", value="A76LABS"
-// Contoh: key="contact_email", value="hello@a76labs.com"
+// key="site_title", value="A76LABS"
+// key="contact_email", value="founder@a76labs.online"
 export const siteSettings = sqliteTable("site_settings", {
-  key: text("key").primaryKey(), // Primary Key (Unik)
+  key: text("key").primaryKey(),
   value: text("value").notNull(),
 });

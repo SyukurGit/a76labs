@@ -1,66 +1,82 @@
 import * as dotenv from "dotenv";
 import bcrypt from "bcryptjs"; 
 
-// 1. Load Environment Variables DULUAN
 dotenv.config({ path: ".env.local" });
 
 async function main() {
   console.log("🌱 Seeding database...");
 
-  // 2. Import DB & Schema DI DALAM fungsi async
   const { db } = await import("../lib/db");
-  const { products, labs, users } = await import("../lib/schema");
+  const { products, labs, users, siteSettings } = await import("../lib/schema");
 
   try {
-    // --- SEED ADMIN USER ---
-    // Cek dulu apakah admin sudah ada agar tidak error duplicate
-    // (Atau gunakan onConflictDoNothing jika kolom email unique)
+    // --- ADMIN USER ---
     console.log("👤 Seeding admin user...");
     const hashedPassword = await bcrypt.hash("admin123", 10);
     
     await db.insert(users).values({
-      email: "admin@a76labs.com",
+      email: "founder@a76labs.online",
       passwordHash: hashedPassword,
-    }).onConflictDoNothing({ target: users.email }); // <--- INI KUNCINYA
+    }).onConflictDoNothing({ target: users.email });
 
-    // --- SEED PRODUCTS ---
+    // --- SITE SETTINGS ---
+    console.log("⚙️ Seeding site settings...");
+    const settingsList = [
+      { key: "site_title", value: "A76LABS" },
+      { key: "site_description", value: "Independent, founder-led product lab building practical digital products, software tools, and focused experiments." },
+      { key: "contact_email", value: "founder@a76labs.online" },
+      { key: "social_github", value: "https://github.com/SyukurGit" },
+      { key: "social_twitter", value: "https://x.com/a76labs" },
+      { key: "founder_site", value: "https://syukur.dev" },
+      { key: "location", value: "Indonesia · WIB (UTC+7)" }
+    ];
+    for (const s of settingsList) {
+      await db.insert(siteSettings).values(s).onConflictDoUpdate({
+        target: siteSettings.key,
+        set: { value: s.value }
+      });
+    }
+
+    // --- PRODUCTS ---
     console.log("📦 Seeding products...");
     await db.insert(products).values([
       {
-        slug: "project-alpha",
-        name: "Project Alpha",
-        tagline: "The next gen SaaS starter kit",
-        description: "Project Alpha solves the problem of repetitive setup by providing a production-ready boilerplate. Built for speed and scale.",
-        status: "Beta",
-        techStack: JSON.stringify(["Next.js", "Turso", "Tailwind"]),
-        demoUrl: "https://example.com",
+        slug: "dompet-pintar",
+        name: "Dompet Pintar",
+        tagline: "Personal cashflow management with web dashboard & Telegram bot",
+        description: "Dompet Pintar is a personal cashflow management application combining a web dashboard, structured transaction recording, account management, Excel reporting, and Telegram bot input workflows.",
+        status: "Active",
+        techStack: JSON.stringify(["Next.js", "Go", "Tailwind CSS", "Telegram Bot API"]),
+        demoUrl: "https://dompetpintar.a76labs.online",
+        repoUrl: null,
         isPublished: true,
       },
       {
         slug: "neon-dash",
         name: "Neon Dash",
-        tagline: "Real-time analytics dashboard",
-        description: "A lightweight dashboard for monitoring server metrics in real-time without the overhead of heavy enterprise tools.",
+        tagline: "Real-time analytics and server monitoring dashboard",
+        description: "A lightweight, real-time metrics dashboard designed for low-overhead operational visibility without complex enterprise monitoring overhead.",
         status: "Active",
-        techStack: JSON.stringify(["React", "WebSockets", "D3.js"]),
-        repoUrl: "https://github.com/example/neon",
+        techStack: JSON.stringify(["React", "WebSockets", "D3.js", "TypeScript"]),
+        demoUrl: null,
+        repoUrl: "https://github.com/SyukurGit/a76labs",
         isPublished: true,
       },
-    ]).onConflictDoNothing({ target: products.slug }); // <--- Cuma insert kalau slug belum ada
+    ]).onConflictDoNothing({ target: products.slug });
 
-    // --- SEED LABS ---
+    // --- LABS ---
     console.log("🧪 Seeding labs...");
     await db.insert(labs).values([
       {
-        slug: "ai-text-gen",
-        title: "AI Text Generator Experiment",
-        type: "Prototype",
-        content: "This is an experiment using OpenAI API to generate marketing copy automatically.",
+        slug: "ai-workflow-automation",
+        title: "AI-Assisted Workflow Automation",
+        type: "Experiment",
+        content: "Exploration of LLM-assisted workflows for automating operational tasks, ticket triage, and structured report synthesis from raw event streams. Focuses on pragmatic prompt orchestration and deterministic schema validation.",
         isPublished: true,
       },
-    ]).onConflictDoNothing({ target: labs.slug }); // <--- Sama di sini
+    ]).onConflictDoNothing({ target: labs.slug });
 
-    console.log("✅ Seeding finished successfully! (Existing data was skipped)");
+    console.log("✅ Seeding finished successfully!");
   } catch (error) {
     console.error("❌ Seeding failed:", error);
   } finally {

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { db } from "@/lib/db";
 import { labs } from "@/lib/schema";
 import { desc } from "drizzle-orm";
-import { Edit, Plus, FlaskConical } from "lucide-react";
+import { Edit, Plus } from "lucide-react";
 import { DeleteLabButton } from "@/components/admin/DeleteLabButton";
 
 export default async function AdminLabsPage() {
@@ -18,10 +18,10 @@ export default async function AdminLabsPage() {
       </div>
 
       <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
-        <table className="w-full text-left border-collapse">
-          <thead>
-            <tr className="bg-gray-50 border-b border-gray-100 text-xs uppercase text-gray-500 font-semibold">
-              <th className="p-4">Experiment Title</th>
+        <table className="w-full text-left text-sm">
+          <thead className="bg-gray-50 border-b border-gray-100 text-gray-500">
+            <tr>
+              <th className="p-4">Title</th>
               <th className="p-4">Type</th>
               <th className="p-4">Status</th>
               <th className="p-4 text-right">Actions</th>
@@ -30,18 +30,17 @@ export default async function AdminLabsPage() {
           <tbody className="divide-y divide-gray-100">
             {allLabs.map((lab) => (
               <tr key={lab.id} className="hover:bg-gray-50">
-                <td className="p-4 font-bold text-gray-900">{lab.title}</td>
-                <td className="p-4"><span className="bg-purple-50 text-purple-700 px-2 py-1 rounded text-xs border border-purple-200">{lab.type}</span></td>
-                <td className="p-4 text-sm">{lab.isPublished ? "Visible" : "Hidden"}</td>
-                <td className="p-4 text-right flex justify-end gap-2">
-                  <Link href={`/admin/labs/${lab.id}/edit`} className="p-2 text-gray-500 hover:text-blue-600 hover:bg-blue-50 rounded-md"><Edit size={16} /></Link>
+                <td className="p-4 font-semibold text-gray-900">{lab.title}</td>
+                <td className="p-4"><span className="text-xs font-mono bg-gray-100 px-2 py-0.5 rounded">{lab.type}</span></td>
+                <td className="p-4">{lab.isPublished ? <span className="text-xs text-green-600 font-semibold">Published</span> : <span className="text-xs text-gray-400">Draft</span>}</td>
+                <td className="p-4 text-right space-x-2">
+                  <Link href={`/admin/labs/${lab.id}/edit`} className="inline-flex p-1.5 text-gray-400 hover:text-black hover:bg-gray-100 rounded-lg"><Edit size={16} /></Link>
                   <DeleteLabButton id={lab.id} />
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-        {allLabs.length === 0 && <div className="p-8 text-center text-gray-500">No experiments yet.</div>}
       </div>
     </div>
   );

@@ -47,7 +47,7 @@ export function SettingsForm({ initialData }: SettingsFormProps) {
               <textarea 
                 name="site_description" 
                 rows={3}
-                defaultValue={initialData.site_description || "An independent product lab focused on digital tools."}
+                defaultValue={initialData.site_description || "Independent, founder-led product lab building practical digital products, software tools, and focused experiments."}
                 className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black text-sm"
               />
             </div>
@@ -67,14 +67,13 @@ export function SettingsForm({ initialData }: SettingsFormProps) {
                 <input 
                   name="contact_email" 
                   type="email" 
-                  defaultValue={initialData.contact_email || ""}
-                  placeholder="hello@example.com"
+                  defaultValue={initialData.contact_email || "founder@a76labs.online"}
+                  placeholder="founder@a76labs.online"
                   className="w-full outline-none text-sm"
                 />
               </div>
             </div>
             
-            {/* Empty Spacer */}
             <div className="hidden md:block"></div>
 
             <div>
@@ -84,8 +83,8 @@ export function SettingsForm({ initialData }: SettingsFormProps) {
                 <input 
                   name="social_github" 
                   type="url" 
-                  defaultValue={initialData.social_github || ""}
-                  placeholder="https://github.com/..."
+                  defaultValue={initialData.social_github || "https://github.com/SyukurGit"}
+                  placeholder="https://github.com/SyukurGit"
                   className="w-full outline-none text-sm"
                 />
               </div>
@@ -109,17 +108,20 @@ export function SettingsForm({ initialData }: SettingsFormProps) {
 
       </div>
 
-      {/* Footer */}
       <div className="px-8 py-4 bg-gray-50 border-t border-gray-100 flex justify-end">
         <button 
           type="submit" 
           disabled={isPending}
-          className="bg-black text-white px-8 py-2 rounded-lg text-sm font-bold hover:bg-gray-800 transition-all flex items-center gap-2 disabled:opacity-50"
+          className="bg-black text-white px-8 py-2.5 rounded-lg text-sm font-bold hover:bg-gray-800 transition-all flex items-center gap-2 disabled:opacity-50"
         >
-          {isPending ? <Loader2 size={16} className="animate-spin" /> : <Save size={16} />} 
-          Save Configuration
+          {isPending ? (
+            <><Loader2 size={16} className="animate-spin" /> Saving Settings...</>
+          ) : (
+            <><Save size={16} /> Save Changes</>
+          )}
         </button>
       </div>
+
     </form>
   );
 }

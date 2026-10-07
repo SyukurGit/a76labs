@@ -1,59 +1,87 @@
 import { MetadataRoute } from "next";
-import { db } from "@/lib/db";
-import { products } from "@/lib/schema";
-import { eq } from "drizzle-orm";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Ganti domain ini sesuai domain Vercel kamu nanti
-  const baseUrl = "https://a76labs.vercel.app"; 
+  const baseUrl = "https://www.a76labs.online";
+  const now = new Date();
 
-  // 1. Ambil data produk yang sudah dipublish dari Database
-  // Ini yang membuat sitemap kita "Dinamis" (Otomatis nambah kalau ada produk baru)
-  const allProducts = await db
-    .select()
-    .from(products)
-    .where(eq(products.isPublished, true));
-
-  // 2. Format URL untuk setiap produk
-  const productUrls = allProducts.map((product) => ({
-    url: `${baseUrl}/products/${product.slug}`,
-    lastModified: new Date(product.updatedAt || new Date()),
-    changeFrequency: "weekly" as const,
-    priority: 0.8,
-  }));
-
-  // 3. Gabungkan dengan halaman statis utama
   return [
     {
       url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 1,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 1.0,
     },
     {
       url: `${baseUrl}/products`,
-      lastModified: new Date(),
-      changeFrequency: "daily",
+      lastModified: now,
+      changeFrequency: "weekly",
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/products/dompet-pintar`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/products/neon-dash`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/work`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/work/pascasarjana`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/work/perpustakaan`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/work/tokenetic`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/research`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/research/least-privilege-jit`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/labs`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 0.5,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
     },
     {
       url: `${baseUrl}/contact`,
-      lastModified: new Date(),
+      lastModified: now,
       changeFrequency: "yearly",
-      priority: 0.5,
+      priority: 0.6,
     },
-    ...productUrls,
   ];
 }

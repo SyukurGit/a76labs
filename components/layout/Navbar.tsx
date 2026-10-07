@@ -1,59 +1,76 @@
 import Link from "next/link";
-import Image from "next/image"; // <--- Import wajib untuk gambar optimasi
+import Image from "next/image";
 import { db } from "@/lib/db";
 import { siteSettings } from "@/lib/schema";
 import { eq } from "drizzle-orm";
+import { MobileMenu } from "./MobileMenu";
 
 async function getSiteTitle() {
-  const setting = await db.select().from(siteSettings).where(eq(siteSettings.key, "site_title")).limit(1);
-  return setting.length > 0 ? setting[0].value : "A76LABS";
+  try {
+    const setting = await db
+      .select()
+      .from(siteSettings)
+      .where(eq(siteSettings.key, "site_title"))
+      .limit(1);
+    return setting.length > 0 ? setting[0].value : "A76LABS";
+  } catch {
+    return "A76LABS";
+  }
 }
 
 export async function Navbar() {
   const siteTitle = await getSiteTitle();
 
+  const navItems = [
+    { label: "Products", href: "/products" },
+    { label: "Selected Work", href: "/work" },
+    { label: "Research", href: "/research" },
+    { label: "Labs", href: "/labs" },
+    { label: "About", href: "/about" },
+  ];
+
   return (
-    <nav className="w-full border-b border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+    <nav className="w-full border-b border-gray-100 bg-white/90 backdrop-blur-md sticky top-0 z-50">
       <div className="container mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
-        
-        {/* Logo Image Area */}
+        {/* Brand / Logo */}
         <Link 
           href="/" 
-          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-          aria-label="Go to Homepage"
+          className="flex items-center gap-2 hover:opacity-85 transition-opacity"
+          aria-label="A76LABS Homepage"
         >
-          <div className="relative h-14 w-40 md:h-16 md:w-56"> {/* Container pembatas ukuran logo */}
+          <div className="relative h-10 w-36 sm:h-12 sm:w-44">
             <Image 
-              src="/a76trans.png"       // Path gambar (otomatis baca dari folder public)
-              alt={siteTitle}      // Penting untuk SEO (Google baca ini sebagai teks)
-              fill                 // Agar gambar memenuhi container pembatas
-              className="object-contain object-left" // Logo rata kiri & proporsional
-              priority             // Load prioritas (karena ini LCP/Elemen utama)
+              src="/a76trans.png"
+              alt={siteTitle}
+              fill
+              className="object-contain object-left"
+              priority
             />
           </div>
         </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex gap-8 text-sm font-medium text-gray-600">
-          <Link href="/products" className="hover:text-black transition-colors">
-            Products
-          </Link>
-          <Link href="/labs" className="hover:text-black transition-colors">
-            Labs
-          </Link>
-          <Link href="/about" className="hover:text-black transition-colors">
-            About
-          </Link>
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-7 text-sm font-medium text-gray-600">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="hover:text-gray-950 transition-colors"
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
 
-        {/* CTA Button */}
-        <div className="flex items-center gap-4">
+        {/* CTA & Mobile Controls */}
+        <div className="flex items-center gap-3">
           <Link 
             href="/contact" 
-            className="hidden md:block bg-black text-white text-xs px-4 py-2 rounded-full font-semibold hover:bg-gray-800 transition-all"
+            className="hidden md:inline-flex items-center justify-center bg-gray-950 text-white text-xs px-4 py-2 rounded-full font-semibold hover:bg-gray-800 transition-colors shadow-sm"
           >
             Contact
           </Link>
+          <MobileMenu items={navItems} />
         </div>
       </div>
     </nav>

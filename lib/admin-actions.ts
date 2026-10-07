@@ -1,29 +1,29 @@
 "use server";
 
 import { db } from "@/lib/db";
-import { products } from "@/lib/schema";
+import { products, labs, messages, siteSettings } from "@/lib/schema";
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { labs } from "@/lib/schema"; // Pastikan import tabel 'labs' di atas
-import { messages } from "@/lib/schema";
-import { siteSettings } from "@/lib/schema";
-import { sql } from "drizzle-orm";
+
+export interface ActionErrorState {
+  error?: string;
+  success?: string;
+}
 
 // --- CREATE PRODUCT ---
-export async function createProduct(prevState: any, formData: FormData) {
+export async function createProduct(_prevState: ActionErrorState | undefined, formData: FormData): Promise<ActionErrorState | undefined> {
   const name = formData.get("name") as string;
   const slug = formData.get("slug") as string;
   const tagline = formData.get("tagline") as string;
   const description = formData.get("description") as string;
   const status = formData.get("status") as "Active" | "Beta" | "Archived";
-  const techStack = formData.get("techStack") as string; // String dipisah koma
+  const techStack = formData.get("techStack") as string;
   const demoUrl = formData.get("demoUrl") as string;
   const repoUrl = formData.get("repoUrl") as string;
   const isPublished = formData.get("isPublished") === "on";
 
   try {
-    // Convert string "React, Next.js" jadi JSON string array '["React", "Next.js"]'
     const techArray = techStack ? JSON.stringify(techStack.split(",").map((t) => t.trim())) : "[]";
 
     await db.insert(products).values({
@@ -38,8 +38,8 @@ export async function createProduct(prevState: any, formData: FormData) {
       isPublished,
     });
 
-    revalidatePath("/admin/products"); // Refresh halaman admin
-    revalidatePath("/products");       // Refresh halaman publik
+    revalidatePath("/admin/products");
+    revalidatePath("/products");
   } catch (error) {
     console.error("Create Product Error:", error);
     return { error: "Failed to create product. Slug might already exist." };
@@ -49,7 +49,7 @@ export async function createProduct(prevState: any, formData: FormData) {
 }
 
 // --- UPDATE PRODUCT ---
-export async function updateProduct(id: number, prevState: any, formData: FormData) {
+export async function updateProduct(id: number, _prevState: ActionErrorState | undefined, formData: FormData): Promise<ActionErrorState | undefined> {
   const name = formData.get("name") as string;
   const slug = formData.get("slug") as string;
   const tagline = formData.get("tagline") as string;
@@ -73,13 +73,14 @@ export async function updateProduct(id: number, prevState: any, formData: FormDa
       demoUrl,
       repoUrl,
       isPublished,
-      updatedAt: new Date().toISOString(), // Update timestamp
+      updatedAt: new Date().toISOString(),
     }).where(eq(products.id, id));
 
     revalidatePath("/admin/products");
     revalidatePath("/products");
-    revalidatePath(`/products/${slug}`); // Refresh halaman detail produk
+    revalidatePath(`/products/${slug}`);
   } catch (error) {
+    console.error("Update Product Error:", error);
     return { error: "Failed to update product." };
   }
 
@@ -98,7 +99,7 @@ export async function deleteProduct(id: number) {
 }
 
 // 1. CREATE LAB
-export async function createLab(prevState: any, formData: FormData) {
+export async function createLab(_prevState: ActionErrorState | undefined, formData: FormData): Promise<ActionErrorState | undefined> {
   const title = formData.get("title") as string;
   const slug = formData.get("slug") as string;
   const type = formData.get("type") as "Prototype" | "Experiment" | "Archived";
@@ -125,7 +126,7 @@ export async function createLab(prevState: any, formData: FormData) {
 }
 
 // 2. UPDATE LAB
-export async function updateLab(id: number, prevState: any, formData: FormData) {
+export async function updateLab(id: number, _prevState: ActionErrorState | undefined, formData: FormData): Promise<ActionErrorState | undefined> {
   const title = formData.get("title") as string;
   const slug = formData.get("slug") as string;
   const type = formData.get("type") as "Prototype" | "Experiment" | "Archived";
@@ -144,6 +145,7 @@ export async function updateLab(id: number, prevState: any, formData: FormData) 
     revalidatePath("/admin/labs");
     revalidatePath("/labs");
   } catch (error) {
+    console.error("Update Lab Error:", error);
     return { error: "Failed to update lab." };
   }
 
@@ -179,8 +181,7 @@ export async function deleteMessage(id: number) {
   }
 }
 
-export async function updateSettings(prevState: any, formData: FormData) {
-  // Ambil semua input dari form
+export async function updateSettings(_prevState: ActionErrorState | undefined, formData: FormData): Promise<ActionErrorState | undefined> {
   const settings = {
     site_title: formData.get("site_title") as string,
     site_description: formData.get("site_description") as string,
@@ -190,8 +191,6 @@ export async function updateSettings(prevState: any, formData: FormData) {
   };
 
   try {
-    // Kita simpan satu per satu menggunakan looping
-    // Gunakan 'on conflict' strategy (SQL Upsert)
     for (const [key, value] of Object.entries(settings)) {
       await db
         .insert(siteSettings)
@@ -203,7 +202,7 @@ export async function updateSettings(prevState: any, formData: FormData) {
     }
 
     revalidatePath("/admin/settings");
-    revalidatePath("/"); // Refresh halaman depan juga karena footer mungkin berubah
+    revalidatePath("/");
     
     return { success: "Settings saved successfully!" };
   } catch (error) {
