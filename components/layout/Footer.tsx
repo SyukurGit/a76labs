@@ -38,22 +38,24 @@ export async function Footer() {
               </div>
             </Link>
             <p className="text-xs text-gray-500 leading-relaxed max-w-sm">
-              Independent, founder-led product lab building practical digital products, software tools, and focused experiments.
+              Founder-led early-stage software startup building and operating practical digital products from Indonesia.
             </p>
-            <p className="text-xs text-gray-500">
-              Location: Indonesia · WIB (UTC+7)
-            </p>
+            <div className="text-xs text-gray-500 space-y-0.5 font-mono">
+              <p>Operating since late 2025</p>
+              <p>Banda Aceh, Indonesia · WIB (UTC+7)</p>
+            </div>
           </div>
 
           {/* Navigation */}
           <div>
-            <h4 className="text-xs font-bold text-gray-950 uppercase tracking-wider mb-4">Navigation</h4>
+            <h4 className="text-xs font-bold text-gray-950 uppercase tracking-wider mb-4">Company</h4>
             <ul className="space-y-2.5 text-xs text-gray-600">
               <li><Link href="/products" className="hover:text-gray-950 transition-colors">Products</Link></li>
-              <li><Link href="/work" className="hover:text-gray-950 transition-colors">Selected Work</Link></li>
+              <li><Link href="/updates" className="hover:text-gray-950 transition-colors">Updates & Build Log</Link></li>
+              <li><Link href="/about" className="hover:text-gray-950 transition-colors">About Company</Link></li>
+              <li><Link href="/work" className="hover:text-gray-950 transition-colors">Founder Work</Link></li>
               <li><Link href="/research" className="hover:text-gray-950 transition-colors">Research</Link></li>
-              <li><Link href="/labs" className="hover:text-gray-950 transition-colors">Labs</Link></li>
-              <li><Link href="/about" className="hover:text-gray-950 transition-colors">About</Link></li>
+              <li><Link href="/labs" className="hover:text-gray-950 transition-colors">Labs Space</Link></li>
               <li><Link href="/contact" className="hover:text-gray-950 transition-colors">Contact</Link></li>
             </ul>
           </div>
@@ -62,11 +64,11 @@ export async function Footer() {
           <div>
             <h4 className="text-xs font-bold text-gray-950 uppercase tracking-wider mb-4">Focus</h4>
             <ul className="space-y-2.5 text-xs text-gray-600">
-              <li><Link href="/products/dompet-pintar" className="hover:text-gray-950 transition-colors">Dompet Pintar</Link></li>
-              <li><Link href="/products/neon-dash" className="hover:text-gray-950 transition-colors">Neon Dash</Link></li>
-              <li><Link href="/work/pascasarjana" className="hover:text-gray-950 transition-colors">Pascasarjana UIN</Link></li>
-              <li><Link href="/work/perpustakaan" className="hover:text-gray-950 transition-colors">Library Operations</Link></li>
-              <li><Link href="/research/least-privilege-jit" className="hover:text-gray-950 transition-colors">Security Research</Link></li>
+              <li><Link href="/products/dompet-pintar" className="hover:text-gray-950 transition-colors font-medium text-gray-900">Dompet Pintar (Live)</Link></li>
+              <li><Link href="/products/neon-dash" className="hover:text-gray-950 transition-colors">Neon Dash (Prototype)</Link></li>
+              <li><Link href="/work/pascasarjana" className="hover:text-gray-950 transition-colors">Pascasarjana UIN (Portal)</Link></li>
+              <li><Link href="/work/perpustakaan" className="hover:text-gray-950 transition-colors">Library Operations (Integration)</Link></li>
+              <li><Link href="/research/least-privilege-jit" className="hover:text-gray-950 transition-colors">Security Research (LP/JIT)</Link></li>
             </ul>
           </div>
 
@@ -90,7 +92,7 @@ export async function Footer() {
                   rel="noopener noreferrer" 
                   className="flex items-center gap-1 hover:text-gray-950 transition-colors"
                 >
-                  <span>Founder Profile: syukur.dev</span>
+                  <span>Founder: syukur.dev</span>
                   <ArrowUpRight size={13} />
                 </a>
               </li>
@@ -105,24 +107,22 @@ export async function Footer() {
                   <span>GitHub (@SyukurGit)</span>
                 </a>
               </li>
-              <li>
-                <a 
-                  href="https://www.linkedin.com/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="flex items-center gap-1 hover:text-gray-950 transition-colors"
-                >
-                  <span>LinkedIn</span>
-                  <ArrowUpRight size={13} />
-                </a>
+              <li className="pt-2 text-[11px] text-gray-400 font-mono">
+                Direct founder-led development. No middlemen.
               </li>
             </ul>
           </div>
         </div>
 
         <div className="pt-8 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-400">
-          <p>© 2026 A76LABS. All rights reserved.</p>
-          <p>Product-first. Engineering-driven. Built to be useful.</p>
+          <div className="flex flex-wrap items-center gap-4">
+            <p>© 2026 A76LABS. All rights reserved.</p>
+            <span>·</span>
+            <Link href="/privacy" className="hover:text-gray-950 transition-colors">Privacy Policy</Link>
+            <span>·</span>
+            <Link href="/terms" className="hover:text-gray-950 transition-colors">Terms of Service</Link>
+          </div>
+          <p>Founder-led software startup · Banda Aceh, Indonesia</p>
         </div>
       </div>
     </footer>

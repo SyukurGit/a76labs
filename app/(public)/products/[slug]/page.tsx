@@ -13,13 +13,14 @@ interface ProductDetail {
   slug: string;
   name: string;
   tagline: string;
-  status: "Active" | "Beta" | "Exploring" | "Archived";
+  status: "Active" | "Active Prototype" | "Beta" | "Archived";
   category: string;
   description: string;
   problem: string;
   solution: string;
   capabilities: string[];
   techStack: string[];
+  brandingNote?: string;
   disclaimer?: string;
   demoUrl?: string;
   repoUrl?: string;
@@ -32,35 +33,37 @@ const PRODUCTS_DATA: Record<string, ProductDetail> = {
     name: "Dompet Pintar",
     tagline: "Personal cashflow tracking with web dashboard & Telegram bot",
     status: "Active",
-    category: "Personal Finance & Cashflow",
-    description: "Dompet Pintar is a personal cashflow management application combining a web dashboard, structured transaction recording, account management, Excel reporting, and Telegram bot input workflows.",
-    problem: "Most individuals fail to maintain consistent financial records because standard accounting software is overly convoluted, while simple note apps lack aggregation, categorization, and reporting. The friction of opening an app, authenticating, and navigating menus causes missed entries.",
-    solution: "Dompet Pintar solves this by offering a zero-friction dual-channel input mechanism: quick expense inputs happen in seconds through an interactive Telegram bot, while high-level reviews, category management, and data exports take place in a responsive web dashboard.",
+    category: "Personal Finance & Cashflow Management",
+    description: "Dompet Pintar is a personal cashflow management application developed and operated directly by A76LABS. It combines an intuitive web dashboard, structured transaction recording, multi-account ledgering, periodic Excel reporting, and a conversational Telegram bot workflow for instant mobile capture.",
+    problem: "Most individuals fail to maintain consistent personal financial records because traditional accounting software is overly cumbersome, while basic notes apps lack automated categorization, ledger balances, and periodic exports. High input friction leads to delayed or skipped entries.",
+    solution: "Dompet Pintar solves this friction through a dual-channel architecture: rapid on-the-go entries are recorded in seconds via a Telegram bot conversation, while high-level reviews, category management, account reconciliation, and date-filtered Excel exports are handled via a responsive web dashboard.",
     capabilities: [
-      "Dual input channels: Web interface for management, Telegram bot for instant on-the-go entries.",
-      "Categorized cashflow tracking: Automatic separation of income vs. expenses with custom categories.",
-      "Cashflow summaries: Monthly and periodic net balance overviews with visual trend charts.",
-      "Structured Excel exports: Filter transactions by date ranges and export audit-ready spreadsheets.",
-      "Account & access management: Protected account sessions with isolated per-user ledger records."
+      "Dual input channels: Web interface for detailed analysis, Telegram bot for instant on-the-go expense capture.",
+      "Categorized cashflow tracking: Automatic separation of income vs. expenses with custom spending categories.",
+      "Multi-account ledger: Unified tracking across physical cash, bank accounts, and digital wallets.",
+      "Periodic financial summaries: Monthly net balance overviews with visual cashflow distribution trends.",
+      "Structured Excel exports: Filter transactions by customizable date ranges and export clean spreadsheets.",
+      "Session & account isolation: Strictly segregated per-user ledgers with secure session authentication."
     ],
     techStack: ["Next.js", "Go", "Gin Framework", "Tailwind CSS", "Telegram Bot API", "SQLite / Turso"],
-    disclaimer: "Dompet Pintar is strictly a personal cashflow tracking and bookkeeping utility. It does NOT provide financial advisory services, investment recommendations, automated trading, or regulated financial services.",
+    brandingNote: "Dompet Pintar is the official canonical product brand operated by A76LABS. During initial backend prototyping, the service was developed under the internal project codename MoneyBot. All current public instances and documentation operate canonically as Dompet Pintar.",
+    disclaimer: "Dompet Pintar is strictly a personal cashflow tracking and bookkeeping utility. It does NOT provide financial advisory services, investment recommendations, automated banking transactions, or regulated financial services.",
     demoUrl: "https://dompetpintar.a76labs.online"
   },
   "neon-dash": {
     slug: "neon-dash",
     name: "Neon Dash",
     tagline: "Real-time analytics and server monitoring dashboard",
-    status: "Active",
-    category: "Infrastructure Monitoring Prototype",
-    description: "A lightweight, real-time metrics dashboard designed for low-overhead operational visibility without the complexity and resource footprint of heavy enterprise monitoring suites.",
-    problem: "Enterprise observability platforms (e.g. Datadog, Prometheus/Grafana clusters) require substantial configuration, dedicated servers, memory overhead, and complex query languages—making them excessive for lean micro-services, independent developers, or small VPS setups.",
-    solution: "Neon Dash provides a focused monitoring surface delivering instantaneous socket-based telemetry and reactive charting with minimal resource utilization and zero heavyweight background daemons.",
+    status: "Active Prototype",
+    category: "Infrastructure Telemetry Prototype",
+    description: "Neon Dash is a lightweight, real-time metrics telemetry dashboard developed as an active R&D prototype by A76LABS. Designed for low-overhead operational visibility without the configuration complexity and resource bloat of enterprise monitoring suites.",
+    problem: "Enterprise observability platforms (e.g. Datadog, Prometheus/Grafana clusters) require substantial memory allocation, continuous maintenance, dedicated telemetry daemons, and complex query syntax—making them excessive for lean microservices, independent developers, or small VPS nodes.",
+    solution: "Neon Dash evaluates a focused telemetry surface delivering low-latency socket-based metrics and reactive charting with minimal resource utilization and zero heavyweight remote background daemons.",
     capabilities: [
-      "Real-time WebSocket streaming: Low-latency metric propagation directly into the UI.",
-      "Reactive charting engine: Built with D3.js and React for crisp, performant data visualizations.",
+      "Real-time WebSocket streaming: Low-latency metric propagation directly into the browser UI.",
+      "Reactive charting engine: Built with D3.js and React for crisp, low-overhead visual updates.",
       "Zero-daemon health pings: HTTP and heartbeat pinging without cumbersome remote agent installations.",
-      "Responsive operational surface: Designed for fast triage on desktop and mobile devices."
+      "Responsive operational surface: Lightweight interface optimized for desktop and mobile triage."
     ],
     plannedFeatures: [
       "Threshold-based webhook alerts (Telegram & Discord)",
@@ -82,7 +85,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: product.name,
+    title: `${product.name} — A76LABS`,
     description: product.tagline,
   };
 }
@@ -96,50 +99,72 @@ export default async function ProductDetailPage({ params }: PageProps) {
     notFound();
   }
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": product.name,
+    "description": product.description,
+    "applicationCategory": product.slug === "dompet-pintar" ? "FinanceApplication" : "DeveloperApplication",
+    "operatingSystem": product.slug === "dompet-pintar" ? "Web, Telegram" : "Web",
+    "url": product.demoUrl || `https://www.a76labs.online/products/${product.slug}`,
+    "author": {
+      "@type": "Organization",
+      "name": "A76LABS",
+      "url": "https://www.a76labs.online"
+    }
+  };
+
   return (
-    <article className="min-h-screen py-16 px-4 md:px-6">
+    <article className="min-h-screen py-16 px-4 sm:px-6 md:px-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="container mx-auto max-w-4xl">
-        <Link 
-          href="/products" 
+        <Link
+          href="/products"
           className="inline-flex items-center gap-1.5 text-xs font-mono text-gray-500 hover:text-black mb-8 transition-colors"
         >
           <ArrowLeft size={14} /> Back to Products
         </Link>
 
+        {/* Header */}
         <header className="mb-12 border-b border-gray-100 pb-10">
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
-            <span className={`text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full border ${
-              product.status === "Active" 
-                ? "bg-emerald-50 text-emerald-700 border-emerald-200" 
-                : "bg-blue-50 text-blue-700 border-blue-200"
-            }`}>
+            <span
+              className={`text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full border ${
+                product.status === "Active"
+                  ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                  : "bg-blue-50 text-blue-700 border-blue-200"
+              }`}
+            >
               {product.status}
             </span>
-            <span className="text-xs font-mono text-gray-400">/ {product.category}</span>
+            <span className="text-xs font-mono text-gray-400">{product.category}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-gray-950 mb-3">
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-950 mb-3">
             {product.name}
           </h1>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl leading-relaxed">
+          <p className="text-lg text-gray-600 max-w-2xl leading-relaxed">
             {product.tagline}
           </p>
 
           <div className="flex flex-wrap gap-3 mt-8">
             {product.demoUrl && (
-              <a 
-                href={product.demoUrl} 
-                target="_blank" 
+              <a
+                href={product.demoUrl}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 bg-gray-950 text-white px-5 py-2.5 rounded-lg text-xs font-semibold hover:bg-gray-800 transition-colors shadow-sm"
               >
-                Open Live Application <ArrowUpRight size={13} />
+                Launch Live App <ArrowUpRight size={13} />
               </a>
             )}
             {product.repoUrl && (
-              <a 
-                href={product.repoUrl} 
-                target="_blank" 
+              <a
+                href={product.repoUrl}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 border border-gray-200 bg-white text-gray-800 px-5 py-2.5 rounded-lg text-xs font-semibold hover:bg-gray-50 transition-colors"
               >
@@ -157,6 +182,13 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 {product.description}
               </p>
             </section>
+
+            {product.brandingNote && (
+              <div className="p-4 rounded-xl border border-blue-100 bg-blue-50/40 text-xs text-blue-900 leading-relaxed font-mono">
+                <strong className="font-semibold block mb-0.5">Brand Consistency & Development Codename</strong>
+                {product.brandingNote}
+              </div>
+            )}
 
             <section className="p-6 rounded-xl border border-gray-200 bg-gray-50/50">
               <h2 className="text-xs font-mono uppercase tracking-wider text-gray-500 font-semibold mb-2">The Problem</h2>
@@ -195,6 +227,28 @@ export default async function ProductDetailPage({ params }: PageProps) {
                     </li>
                   ))}
                 </ul>
+              </section>
+            )}
+
+            {product.slug === "dompet-pintar" && (
+              <section className="p-6 rounded-xl border border-gray-200 bg-white space-y-3">
+                <h3 className="text-xs font-mono uppercase tracking-wider text-gray-500 font-semibold">
+                  Data Privacy & Storage Transparency
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-gray-600 font-mono">
+                  <div className="p-3 rounded-lg bg-gray-50 border border-gray-100">
+                    <strong className="text-gray-900 block mb-1">Confidential Ledgering</strong>
+                    Isolated per-user balance records. Zero third-party ad tracking or marketing beacons.
+                  </div>
+                  <div className="p-3 rounded-lg bg-gray-50 border border-gray-100">
+                    <strong className="text-gray-900 block mb-1">Zero Bank Credentials</strong>
+                    No bank logins, credit card numbers, or PINs requested or stored.
+                  </div>
+                </div>
+                <p className="text-xs text-gray-500 pt-1">
+                  Full data deletion and Excel ledger export supported. Read our full{" "}
+                  <Link href="/privacy" className="text-[#027FDB] underline">Privacy & Data Policy</Link>.
+                </p>
               </section>
             )}
 
@@ -243,7 +297,16 @@ export default async function ProductDetailPage({ params }: PageProps) {
                   <span>Operated by:</span>
                   <span className="font-semibold text-gray-950">A76LABS</span>
                 </div>
+                <div className="flex justify-between">
+                  <span>Engineering Lead:</span>
+                  <span className="font-semibold text-gray-950">Muhammad Syukur</span>
+                </div>
               </div>
+            </div>
+
+            <div className="p-5 rounded-xl border border-gray-200 bg-white text-xs text-gray-500 space-y-2 font-mono">
+              <p className="font-bold text-gray-950">A76LABS Assurance</p>
+              <p>Direct engineering oversight. No fabricated metrics or synthetic claims.</p>
             </div>
           </aside>
         </div>

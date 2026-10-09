@@ -17,24 +17,29 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.a76labs.online"),
   title: {
-    default: "A76LABS — Practical Digital Products",
+    default: "A76LABS — Founder-Led Software Startup",
     template: "%s — A76LABS",
   },
-  description: "A76LABS is an independent, founder-led product lab building practical digital products, software tools, and focused experiments.",
+  description: "A76LABS is a founder-led early-stage software startup building and operating practical digital products from Indonesia. Led by founder Muhammad Syukur.",
   keywords: [
-    "Product Lab",
     "A76LABS",
-    "Software Engineering",
-    "Backend Systems",
+    "Software Startup",
+    "Software Venture",
+    "Founder-Led Startup",
+    "Dompet Pintar",
+    "Neon Dash",
+    "Muhammad Syukur",
+    "Software Engineering Indonesia",
     "Web Applications",
-    "Access Control",
-    "Indie Software",
-    "Muhammad Syukur"
+    "Cashflow Management",
+    "Backend Systems"
   ],
   authors: [{ name: "Muhammad Syukur", url: "https://syukur.dev" }],
+  creator: "Muhammad Syukur",
+  publisher: "A76LABS",
   openGraph: {
-    title: "A76LABS — Practical Digital Products",
-    description: "A76LABS is an independent, founder-led product lab building practical digital products, software tools, and focused experiments.",
+    title: "A76LABS — Founder-Led Software Startup",
+    description: "A76LABS is a founder-led early-stage software startup building and operating practical digital products from Indonesia. Led by founder Muhammad Syukur.",
     url: "https://www.a76labs.online",
     siteName: "A76LABS",
     locale: "en_US",
@@ -42,8 +47,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "A76LABS — Practical Digital Products",
-    description: "Independent, founder-led product lab building practical digital products, software tools, and focused experiments.",
+    title: "A76LABS — Founder-Led Software Startup",
+    description: "Founder-led early-stage software startup building and operating practical digital products from Indonesia. Led by founder Muhammad Syukur.",
+  },
+  alternates: {
+    canonical: "https://www.a76labs.online",
   },
 };
 

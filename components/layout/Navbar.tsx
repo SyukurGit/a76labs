@@ -23,9 +23,9 @@ export async function Navbar() {
 
   const navItems = [
     { label: "Products", href: "/products" },
+    { label: "Updates", href: "/updates" },
     { label: "Selected Work", href: "/work" },
     { label: "Research", href: "/research" },
-    { label: "Labs", href: "/labs" },
     { label: "About", href: "/about" },
   ];
 

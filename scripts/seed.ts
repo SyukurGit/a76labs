@@ -23,7 +23,7 @@ async function main() {
     console.log("⚙️ Seeding site settings...");
     const settingsList = [
       { key: "site_title", value: "A76LABS" },
-      { key: "site_description", value: "Independent, founder-led product lab building practical digital products, software tools, and focused experiments." },
+      { key: "site_description", value: "Founder-led early-stage software startup building and operating practical digital products from Indonesia. Led by founder Muhammad Syukur." },
       { key: "contact_email", value: "founder@a76labs.online" },
       { key: "social_github", value: "https://github.com/SyukurGit" },
       { key: "social_twitter", value: "https://x.com/a76labs" },

@@ -1,17 +1,14 @@
 import { ImageResponse } from "next/og";
 
-// Route segment config
 export const runtime = "edge";
 
-// Image metadata
-export const alt = "A76LABS - Independent Product Lab";
+export const alt = "A76LABS — Founder-Led Software Startup";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
   return new ImageResponse(
     (
-      // ImageResponse JSX element
       <div
         style={{
           fontSize: 128,
@@ -27,13 +24,15 @@ export default async function Image() {
           letterSpacing: "-0.05em",
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-            {/* Kita pakai kotak hitam simpel sebagai logo visual */}
-            <div style={{ width: 80, height: 80, background: 'black', borderRadius: 10 }} />
-            <span>A76LABS</span>
+        <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+          <div style={{ width: 80, height: 80, background: "black", borderRadius: 12 }} />
+          <span>A76LABS</span>
         </div>
-        <div style={{ fontSize: 40, marginTop: 30, color: '#666', fontWeight: 400 }}>
-            Practical Digital Products
+        <div style={{ fontSize: 36, marginTop: 30, color: "#111827", fontWeight: 600 }}>
+          Founder-Led Software Startup · Indonesia
+        </div>
+        <div style={{ fontSize: 24, marginTop: 12, color: "#4b5563", fontWeight: 400 }}>
+          Building & Operating Practical Digital Products
         </div>
       </div>
     ),

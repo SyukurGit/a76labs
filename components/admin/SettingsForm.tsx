@@ -1,8 +1,8 @@
 "use client";
 
-import { useActionState } from "react";
-import { updateSettings } from "@/lib/admin-actions";
 import { Save, Loader2, Globe, Mail, Github, Twitter } from "lucide-react";
+import { updateSettings } from "@/lib/admin-actions";
+import { useActionState } from "react";
 
 interface SettingsFormProps {
   initialData: Record<string, string>;
@@ -12,116 +12,119 @@ export function SettingsForm({ initialData }: SettingsFormProps) {
   const [state, formAction, isPending] = useActionState(updateSettings, undefined);
 
   return (
-    <form action={formAction} className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
-      
-      {/* Header Messages */}
-      {(state?.success || state?.error) && (
-        <div className={`px-8 py-3 text-sm font-bold ${state.success ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'}`}>
-          {state.success || state.error}
+    <form action={formAction} className="space-y-6">
+      {state?.error && (
+        <div className="p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm">
+          {state.error}
+        </div>
+      )}
+      {state?.success && (
+        <div className="p-4 bg-emerald-50 border border-emerald-200 text-emerald-700 rounded-lg text-sm">
+          {state.success}
         </div>
       )}
 
-      <div className="p-8 space-y-8">
-        
-        {/* SECTION 1: General Info */}
-        <div>
-          <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b border-gray-100 pb-2">
-            General Information
-          </h3>
-          <div className="grid grid-cols-1 gap-6">
-            <div>
-              <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Website Title</label>
-              <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-black">
-                <Globe size={18} className="text-gray-400" />
-                <input 
-                  name="site_title" 
-                  type="text" 
-                  defaultValue={initialData.site_title || "A76LABS"}
-                  className="w-full outline-none text-sm"
-                />
-              </div>
-            </div>
+      {/* General Settings */}
+      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-4">
+        <h2 className="text-lg font-bold text-gray-900 border-b border-gray-100 pb-3 flex items-center gap-2">
+          <Globe size={18} className="text-gray-400" />
+          General Information
+        </h2>
 
-            <div>
-              <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">SEO Description</label>
-              <textarea 
-                name="site_description" 
-                rows={3}
-                defaultValue={initialData.site_description || "Independent, founder-led product lab building practical digital products, software tools, and focused experiments."}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black text-sm"
+        <div>
+          <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Site Title</label>
+          <input 
+            type="text" 
+            name="site_title" 
+            defaultValue={initialData.site_title || "A76LABS"}
+            required
+            className="w-full px-3.5 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+          />
+        </div>
+
+        <div>
+          <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Site Description</label>
+          <textarea 
+            name="site_description" 
+            rows={3}
+            defaultValue={initialData.site_description || "Founder-led early-stage software startup building and operating practical digital products from Indonesia. Led by founder Muhammad Syukur."}
+            className="w-full px-3.5 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+          />
+        </div>
+      </div>
+
+      {/* Contact & Socials */}
+      <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm space-y-4">
+        <h2 className="text-lg font-bold text-gray-900 border-b border-gray-100 pb-3 flex items-center gap-2">
+          <Mail size={18} className="text-gray-400" />
+          Contact & Social Links
+        </h2>
+
+        <div>
+          <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Contact Email</label>
+          <input 
+            type="email" 
+            name="contact_email" 
+            defaultValue={initialData.contact_email || "founder@a76labs.online"}
+            placeholder="founder@a76labs.online"
+            className="w-full px-3.5 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+          />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">GitHub URL</label>
+            <div className="relative flex items-center">
+              <span className="absolute left-3">
+                <Github size={18} className="text-gray-400" />
+              </span>
+              <input 
+                type="url" 
+                name="social_github" 
+                defaultValue={initialData.social_github || "https://github.com/SyukurGit"}
+                placeholder="https://github.com/SyukurGit"
+                className="w-full pl-10 pr-3.5 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Twitter / X URL</label>
+            <div className="relative flex items-center">
+              <span className="absolute left-3">
+                <Twitter size={18} className="text-gray-400" />
+              </span>
+              <input 
+                type="url" 
+                name="social_twitter" 
+                defaultValue={initialData.social_twitter || ""}
+                placeholder="https://x.com/..."
+                className="w-full pl-10 pr-3.5 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
               />
             </div>
           </div>
         </div>
-
-        {/* SECTION 2: Contact & Socials */}
-        <div>
-          <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b border-gray-100 pb-2">
-            Contact & Socials
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Contact Email</label>
-              <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-black">
-                <Mail size={18} className="text-gray-400" />
-                <input 
-                  name="contact_email" 
-                  type="email" 
-                  defaultValue={initialData.contact_email || "founder@a76labs.online"}
-                  placeholder="founder@a76labs.online"
-                  className="w-full outline-none text-sm"
-                />
-              </div>
-            </div>
-            
-            <div className="hidden md:block"></div>
-
-            <div>
-              <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">GitHub URL</label>
-              <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-black">
-                <Github size={18} className="text-gray-400" />
-                <input 
-                  name="social_github" 
-                  type="url" 
-                  defaultValue={initialData.social_github || "https://github.com/SyukurGit"}
-                  placeholder="https://github.com/SyukurGit"
-                  className="w-full outline-none text-sm"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Twitter / X URL</label>
-              <div className="flex items-center gap-2 border border-gray-200 rounded-lg px-3 py-2 focus-within:ring-2 focus-within:ring-black">
-                <Twitter size={18} className="text-gray-400" />
-                <input 
-                  name="social_twitter" 
-                  type="url" 
-                  defaultValue={initialData.social_twitter || ""}
-                  placeholder="https://x.com/..."
-                  className="w-full outline-none text-sm"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
 
-      <div className="px-8 py-4 bg-gray-50 border-t border-gray-100 flex justify-end">
-        <button 
-          type="submit" 
+      <div className="flex justify-end">
+        <button
+          type="submit"
           disabled={isPending}
-          className="bg-black text-white px-8 py-2.5 rounded-lg text-sm font-bold hover:bg-gray-800 transition-all flex items-center gap-2 disabled:opacity-50"
+          className="inline-flex items-center gap-2 px-6 py-2.5 bg-black text-white text-sm font-semibold rounded-lg hover:bg-gray-800 disabled:opacity-50 transition-colors shadow-sm"
         >
           {isPending ? (
-            <><Loader2 size={16} className="animate-spin" /> Saving Settings...</>
+            <>
+              <Loader2 size={16} className="animate-spin" />
+              Saving...
+            </>
           ) : (
-            <><Save size={16} /> Save Changes</>
+            <>
+              <Save size={16} />
+              Save Settings
+            </>
           )}
         </button>
       </div>
-
     </form>
   );
 }
