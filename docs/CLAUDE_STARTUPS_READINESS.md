@@ -142,12 +142,13 @@ During the audit, five primary verification vulnerabilities were detected:
 
 ---
 
-## 9. Founder Credibility
+## 9. Founder Credibility (Tier-1 Independent Verification Anchor)
 
-Muhammad Syukur demonstrates authentic, verifiable software engineering expertise:
-- Demonstrated production systems operating for a major public university (Universitas Islam Negeri Ar-Raniry).
-- Tangible academic research in application security with 19 evaluated test scenarios.
-- Active GitHub repository history spanning Go, Next.js, TypeScript, PHP, and Python.
+Muhammad Syukur demonstrates authentic, externally verifiable software engineering expertise:
+- **Live Institutional Watermark**: The official production portal of Pascasarjana Universitas Islam Negeri Ar-Raniry (`https://en.pps.ar-raniry.ac.id`) bears an active footer developer watermark: *"Developed by syukur.dev"*, linking directly to the founder portfolio. This provides immutable, third-party state university verification of technical authorship.
+- **Automated Verification Tests in Production Repos**: The library clearance system (`SyukurGit/perpus-new`) includes automated PHPUnit tests (`test_root_footer_keeps_institution_and_uses_safe_developer_link`) guaranteeing institutional attribution.
+- **Published Security Research Portal**: Operates an interactive research platform (`https://skripsi.syukur.dev`) backed by Go and Next.js demonstrating 19 verified scenarios of Least Privilege & Just-in-Time access control.
+- **Demonstrated Full-Stack Competence**: Active repositories and production deployments spanning Go, Gin, Laravel, Next.js, SQLite/Turso, and Telegram Bot API.
 
 ---
 

@@ -19,6 +19,14 @@ export default function PerpustakaanCaseStudy() {
         </Link>
 
         {/* Header */}
+        <div className="p-4 rounded-xl border border-emerald-200 bg-emerald-50/60 text-xs text-emerald-950 leading-relaxed mb-8 font-mono">
+          <div className="flex items-center gap-2 font-bold mb-1">
+            <CheckCircle2 size={15} className="text-emerald-600" />
+            <span>Independent Verification & Operational Proof</span>
+          </div>
+          The library clearance and fine reconciliation system powers production document verification for UIN Ar-Raniry. The system architecture, test harness, and developer attribution link to <a href="https://syukur.dev" target="_blank" rel="noopener noreferrer" className="underline font-semibold text-emerald-800">syukur.dev</a> are verified in institutional production tests and operational workflows.
+        </div>
+
         <header className="mb-12 border-b border-gray-100 pb-10">
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">

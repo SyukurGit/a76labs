@@ -18,6 +18,14 @@ export default function PascasarjanaCaseStudy() {
           <ArrowLeft size={14} /> Back to Selected Work
         </Link>
 
+        <div className="p-4 rounded-xl border border-emerald-200 bg-emerald-50/60 text-xs text-emerald-950 leading-relaxed mb-8 font-mono">
+          <div className="flex items-center gap-2 font-bold mb-1">
+            <CheckCircle2 size={15} className="text-emerald-600" />
+            <span>Independent Verification & Production Watermark</span>
+          </div>
+          Reviewers can independently verify the founder&apos;s direct authorship on the live institutional portal: the production root footer of <a href="https://en.pps.ar-raniry.ac.id/" target="_blank" rel="noopener noreferrer" className="underline font-semibold text-emerald-800">en.pps.ar-raniry.ac.id</a> contains the active developer attribution watermark <em>&quot;Developed by syukur.dev&quot;</em> linking directly to the founder.
+        </div>
+
         <header className="mb-12 border-b border-gray-100 pb-10">
           <div className="flex flex-wrap items-center gap-2.5 mb-4">
             <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">

@@ -426,8 +426,13 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="p-4 rounded-xl border border-amber-200 bg-amber-50/50 text-xs text-amber-900 leading-relaxed mb-8 font-mono">
-              <strong>Institutional Demarcation:</strong> The systems below were developed by founder Muhammad Syukur for institutional environments (such as UIN Ar-Raniry). They are documented here to provide verifiable proof of engineering competence, not as A76LABS proprietary SaaS products.
+            <div className="p-4 rounded-xl border border-blue-200 bg-blue-50/50 text-xs text-blue-950 leading-relaxed mb-8 font-mono space-y-1">
+              <div>
+                <strong>Verifiable Public Proof & Institutional Attribution:</strong> These operational systems were built by founder Muhammad Syukur. Their production status and founder authorship can be audited directly on live state university portals (for example, the active footer watermark on <a href="https://en.pps.ar-raniry.ac.id/" target="_blank" rel="noopener noreferrer" className="underline font-bold text-[#027FDB]">en.pps.ar-raniry.ac.id</a> linking to <em>syukur.dev</em>).
+              </div>
+              <div className="text-[11px] text-blue-800">
+                <strong>Demarcation:</strong> Documented here as proof of technical competence, not as proprietary A76LABS SaaS products.
+              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

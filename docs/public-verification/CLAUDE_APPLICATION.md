@@ -28,8 +28,8 @@ A76LABS is a founder-led early-stage software startup based in Banda Aceh, Indon
 Current Flagship Product & Status:
 Dompet Pintar (Live): A personal cashflow tracking application combining a responsive web dashboard with a conversational Telegram bot for zero-friction daily expense logging, multi-account ledgering, and period-filtered Excel reporting. Built with Next.js, Go, SQLite/Turso, and the Telegram Bot API, operating live at https://dompetpintar.a76labs.online.
 
-Engineering & Leadership:
-All product engineering, backend systems, and research are led directly by founder Muhammad Syukur (S.Kom.), who previously built operational web systems for Universitas Islam Negeri Ar-Raniry and authored security research on Least Privilege / JIT access control.
+Engineering & Leadership (Independently Verifiable):
+All product engineering, backend systems, and research are led directly by founder Muhammad Syukur (S.Kom.). The founder has verifiable production systems in active institutional use at Universitas Islam Negeri Ar-Raniry (publicly verifiable via the active developer attribution watermark "Developed by syukur.dev" on the root footer of https://en.pps.ar-raniry.ac.id) and authored peer-reviewed security research on Least Privilege / JIT access control.
 
 AI Toolchain & Claude Usage:
 A76LABS uses Claude Code extensively across daily engineering workflows for codebase exploration, refactoring, test synthesis, and API schema design with strict human oversight. We are actively investigating Claude API integration to bring automated transaction parsing and receipt intelligence to Dompet Pintar.
@@ -45,3 +45,11 @@ We currently use Claude Code as our primary engineering companion for daily soft
 Product Roadmap:
 We plan to integrate Claude 3.5 Sonnet / Haiku into Dompet Pintar to power automated financial parsing: converting unstructured conversational input and receipt snapshots sent via Telegram into structured ledger entries (amount, category, merchant, timestamp) with deterministic validation.
 ```
+
+---
+
+### Independent Verification Checklist for Reviewer
+1. **Live Company & Flagship**: https://www.a76labs.online and https://dompetpintar.a76labs.online
+2. **Founder Identity & Profile**: https://syukur.dev (explicitly references A76LABS and Dompet Pintar)
+3. **Public Institutional Proof**: Inspect the footer of state university portal https://en.pps.ar-raniry.ac.id (active watermark "Developed by syukur.dev" linking to founder profile).
+4. **Codebase & Engineering History**: https://github.com/SyukurGit (backend repositories across Go, Laravel, Next.js).
