@@ -294,58 +294,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* SECONDARY PRODUCT / ACTIVE R&D: NEON DASH */}
-        <section className="px-4 md:px-6">
-          <div className="container mx-auto max-w-5xl">
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-8 pb-4 border-b border-gray-100">
-              <div>
-                <span className="text-xs font-mono uppercase tracking-wider text-blue-600 font-semibold">Active R&D / Prototype</span>
-                <h2 className="text-3xl font-extrabold text-gray-950 mt-1">Neon Dash</h2>
-                <p className="text-gray-600 text-sm mt-1">
-                  Real-time server telemetry and metrics dashboard prototype.
-                </p>
-              </div>
-              <span className="text-xs font-mono text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200 font-semibold">
-                Prototype Exploration
-              </span>
-            </div>
-
-            <div className="p-8 rounded-2xl border border-gray-200 bg-white shadow-sm grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-              <div className="md:col-span-2 space-y-4">
-                <h3 className="text-xl font-bold text-gray-950">
-                  Low-overhead metrics streaming for lean server setups.
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Enterprise observability stacks (Datadog, Prometheus/Grafana) often consume excessive configuration time, server RAM, and maintenance overhead for small VPS setups and microservices. Neon Dash explores a minimal, socket-based telemetry architecture delivering instant visual pings with zero heavyweight remote agents.
-                </p>
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {["React", "WebSockets", "D3.js", "TypeScript"].map((t) => (
-                    <span key={t} className="text-xs font-mono px-2.5 py-0.5 rounded bg-gray-100 text-gray-700">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="space-y-3 md:border-l md:border-gray-100 md:pl-8">
-                <div className="text-xs font-mono text-gray-500 space-y-1">
-                  <p>• Streaming WebSocket latency</p>
-                  <p>• Direct canvas chart rendering</p>
-                  <p>• Zero-agent baseline health pinging</p>
-                </div>
-                <div className="pt-2">
-                  <Link
-                    href="/products/neon-dash"
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-gray-950 hover:text-[#027FDB]"
-                  >
-                    View Prototype Specification <ArrowRight size={13} />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* WHY A76LABS / PRODUCT PHILOSOPHY */}
         <section className="px-4 md:px-6">
           <div className="container mx-auto max-w-5xl">

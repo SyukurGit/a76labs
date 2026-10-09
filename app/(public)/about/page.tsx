@@ -121,7 +121,7 @@ export default function AboutPage() {
             A76LABS was established to design, develop, and operate practical software tools that address clear friction points in daily workflows. Rather than pursuing speculative trends, heavy venture structures, or artificial complexity, we operate with a lean, disciplined engineering ethos: identify a concrete problem, ship a focused solution, and maintain it with rigor.
           </p>
           <p>
-            Our core product focus is personal and operational utility. Our flagship application, <strong>Dompet Pintar</strong>, provides a personal cashflow management platform combining an interactive web dashboard with an on-the-go Telegram bot for zero-friction daily expense capture. Alongside active products, we operate an R&D prototype track exploring lightweight server telemetry (<strong>Neon Dash</strong>) and internal application security architectures.
+            Our core product focus is personal and operational utility. Our flagship application, <strong>Dompet Pintar</strong>, provides a personal cashflow management platform combining an interactive web dashboard with an on-the-go Telegram bot for zero-friction daily expense capture. Alongside our live product operations, we maintain an engineering research track focused on robust data architectures, pragmatic automation, and application security.
           </p>
         </section>
 
@@ -157,7 +157,7 @@ export default function AboutPage() {
             <div className="p-5 rounded-xl border border-gray-200 bg-white space-y-2">
               <h3 className="font-bold text-gray-950 text-sm">Empirical Prototyping</h3>
               <p className="text-xs text-gray-600 leading-relaxed">
-                New concepts (such as socket telemetry in Neon Dash or security session engines) are evaluated systematically in our Labs space before production integration.
+                New architectural concepts (such as ephemeral session authorization and structured schema extraction) are evaluated systematically in our Labs space before production integration.
               </p>
             </div>
           </div>

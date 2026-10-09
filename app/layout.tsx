@@ -27,7 +27,6 @@ export const metadata: Metadata = {
     "Software Venture",
     "Founder-Led Startup",
     "Dompet Pintar",
-    "Neon Dash",
     "Muhammad Syukur",
     "Software Engineering Indonesia",
     "Web Applications",

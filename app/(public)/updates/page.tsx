@@ -49,21 +49,6 @@ const MILESTONES: Milestone[] = [
     }
   },
   {
-    date: "July 2026",
-    tag: "Active R&D",
-    title: "Neon Dash Telemetry Prototype Exploration",
-    description: "Initiated prototyping of a low-overhead, real-time server telemetry dashboard designed for lightweight VPS operations without enterprise monitoring bloat.",
-    details: [
-      "Benchmarked WebSocket streaming performance and browser memory utilization during high-frequency telemetry bursts.",
-      "Prototyped zero-agent heartbeat monitoring surface with reactive React/D3 data visualization.",
-      "Documented architectural findings in internal Labs space."
-    ],
-    link: {
-      label: "View Neon Dash Prototype",
-      href: "/products/neon-dash"
-    }
-  },
-  {
     date: "May 2026",
     tag: "Security Research",
     title: "Access Control Research Prototype Completion",

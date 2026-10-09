@@ -34,15 +34,6 @@ const STATIC_LABS: LabItem[] = [
     purpose: "Lightweight Redis-free ephemeral authorization layer enforcing maximum 15-minute operational session leases on Go backends.",
     technologies: ["Go", "Gin", "JWT Claims", "Cryptographic Signatures"],
     learned: "Short-lived cryptographic tokens with signed ticket context eliminate continuous database session lookups while preserving zero-trust guarantees."
-  },
-  {
-    id: 103,
-    slug: "low-overhead-socket-streaming",
-    title: "Low-Footprint WebSocket Telemetry Streamer",
-    type: "Prototype",
-    purpose: "Evaluating socket heartbeat overhead and browser thread memory consumption during continuous 100ms metric bursts in React/D3.",
-    technologies: ["WebSockets", "React 19", "D3.js", "Performance Profiling"],
-    learned: "Direct canvas or D3 DOM-bypassing canvas drawing significantly outperforms SVG re-rendering under high-frequency metric feeds."
   }
 ];
 
@@ -74,13 +65,11 @@ export default function LabsPage() {
                     {item.title}
                   </h2>
                   <span
-                    className={`text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border ${
+                    className={
                       item.type === "Prototype"
-                        ? "bg-blue-50 text-blue-700 border-blue-200"
-                        : item.type === "Experiment"
-                        ? "bg-purple-50 text-purple-700 border-purple-200"
-                        : "bg-gray-100 text-gray-700 border-gray-200"
-                    }`}
+                        ? "text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border bg-blue-50 text-blue-700 border-blue-200"
+                        : "text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-full border bg-purple-50 text-purple-700 border-purple-200"
+                    }
                   >
                     {item.type}
                   </span>

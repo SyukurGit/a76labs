@@ -50,18 +50,7 @@ async function main() {
         demoUrl: "https://dompetpintar.a76labs.online",
         repoUrl: null,
         isPublished: true,
-      },
-      {
-        slug: "neon-dash",
-        name: "Neon Dash",
-        tagline: "Real-time analytics and server monitoring dashboard",
-        description: "A lightweight, real-time metrics dashboard designed for low-overhead operational visibility without complex enterprise monitoring overhead.",
-        status: "Active",
-        techStack: JSON.stringify(["React", "WebSockets", "D3.js", "TypeScript"]),
-        demoUrl: null,
-        repoUrl: "https://github.com/SyukurGit/a76labs",
-        isPublished: true,
-      },
+      }
     ]).onConflictDoNothing({ target: products.slug });
 
     // --- LABS ---

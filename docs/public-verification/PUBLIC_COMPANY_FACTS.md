@@ -1,4 +1,4 @@
-# Ground-Truth Company Facts Reference Sheet
+# Ground-Truth Company Facts Reference Sheet (Post-Audit)
 
 | Field | Factual Value | Verification Source | Status |
 |---|---|---|---|
@@ -13,7 +13,6 @@
 | **Official Contact Email** | founder@a76labs.online | ImprovMX DNS MX records | VERIFIED |
 | **Flagship Product** | Dompet Pintar (Live) | dompetpintar.a76labs.online | VERIFIED |
 | **Internal Codename** | MoneyBot (early backend prototype) | Git repo `be-moneybot` (Nov 2025) | VERIFIED |
-| **Secondary Product** | Neon Dash (Active Prototype / R&D) | a76labs.online/products/neon-dash | VERIFIED |
 | **Founder Portfolio** | https://syukur.dev | Live Vercel deployment | VERIFIED |
 | **GitHub Organization/User** | https://github.com/SyukurGit | Live GitHub profile | VERIFIED |
 | **AI Tooling** | Claude Code for AI-assisted engineering | Development workflow | VERIFIED |

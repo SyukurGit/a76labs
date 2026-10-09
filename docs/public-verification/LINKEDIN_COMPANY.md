@@ -23,7 +23,6 @@ We build, operate, and maintain focused software products designed for real-worl
 
 Current Products & R&D:
 • Dompet Pintar: Live personal cashflow management application combining an intuitive web dashboard, multi-account ledger, and conversational Telegram bot logging.
-• Neon Dash: Lightweight server telemetry and real-time WebSocket metrics monitoring prototype.
 
 Engineering and operations are led directly by founder Muhammad Syukur.
 

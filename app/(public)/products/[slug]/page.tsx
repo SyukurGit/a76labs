@@ -49,29 +49,6 @@ const PRODUCTS_DATA: Record<string, ProductDetail> = {
     brandingNote: "Dompet Pintar is the official canonical product brand operated by A76LABS. During initial backend prototyping, the service was developed under the internal project codename MoneyBot. All current public instances and documentation operate canonically as Dompet Pintar.",
     disclaimer: "Dompet Pintar is strictly a personal cashflow tracking and bookkeeping utility. It does NOT provide financial advisory services, investment recommendations, automated banking transactions, or regulated financial services.",
     demoUrl: "https://dompetpintar.a76labs.online"
-  },
-  "neon-dash": {
-    slug: "neon-dash",
-    name: "Neon Dash",
-    tagline: "Real-time analytics and server monitoring dashboard",
-    status: "Active Prototype",
-    category: "Infrastructure Telemetry Prototype",
-    description: "Neon Dash is a lightweight, real-time metrics telemetry dashboard developed as an active R&D prototype by A76LABS. Designed for low-overhead operational visibility without the configuration complexity and resource bloat of enterprise monitoring suites.",
-    problem: "Enterprise observability platforms (e.g. Datadog, Prometheus/Grafana clusters) require substantial memory allocation, continuous maintenance, dedicated telemetry daemons, and complex query syntax—making them excessive for lean microservices, independent developers, or small VPS nodes.",
-    solution: "Neon Dash evaluates a focused telemetry surface delivering low-latency socket-based metrics and reactive charting with minimal resource utilization and zero heavyweight remote background daemons.",
-    capabilities: [
-      "Real-time WebSocket streaming: Low-latency metric propagation directly into the browser UI.",
-      "Reactive charting engine: Built with D3.js and React for crisp, low-overhead visual updates.",
-      "Zero-daemon health pings: HTTP and heartbeat pinging without cumbersome remote agent installations.",
-      "Responsive operational surface: Lightweight interface optimized for desktop and mobile triage."
-    ],
-    plannedFeatures: [
-      "Threshold-based webhook alerts (Telegram & Discord)",
-      "Multi-node health federation",
-      "Historical time-series rollups export"
-    ],
-    techStack: ["React", "WebSockets", "D3.js", "TypeScript", "Tailwind CSS"],
-    repoUrl: "https://github.com/SyukurGit/a76labs"
   }
 };
 

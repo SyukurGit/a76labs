@@ -12,7 +12,7 @@
 
 A76LABS has undergone a full forensic audit and public-facing identity restructuring. The entity has been reframed from an ambiguous *"independent product lab / developer-project collection"* into its strongest truthful operational reality: **a founder-led early-stage software startup / software venture building and operating practical digital products from Indonesia**.
 
-Every claim on the primary web platform has been audited against ground-truth evidence (domain registry RDAP, git commit logs, production server responses, and institutional repositories). No vanity metrics, synthetic user numbers, fictional partnerships, or exaggerated "AI-native" slogans were invented. The live flagship product (**Dompet Pintar**), secondary R&D prototype (**Neon Dash**), founder engineering background (institutional portals for Universitas Islam Negeri Ar-Raniry), and security thesis research have been cleanly demarcated to eliminate confusion.
+Every claim on the primary web platform has been audited against ground-truth evidence (domain registry RDAP, git commit logs, production server responses, and institutional repositories). No vanity metrics, synthetic user numbers, fictional partnerships, or exaggerated "AI-native" slogans were invented. The live flagship product (**Dompet Pintar**), founder engineering background (institutional portals for Universitas Islam Negeri Ar-Raniry), and security thesis research have been cleanly demarcated to eliminate confusion.
 
 ---
 
@@ -48,7 +48,7 @@ During the audit, five primary verification vulnerabilities were detected:
    - Added **Verified Company Snapshot** (Founder, Operating Base, Operating Timeline, Primary Domain, Contact).
    - Elevated **Dompet Pintar** as the primary flagship product with live CTA to `https://dompetpintar.a76labs.online`.
    - Added canonical brand continuity note clarifying the MoneyBot internal codename.
-   - Positioned **Neon Dash** as an active telemetry prototype (R&D), not fake SaaS.
+   - Completely purged dummy display concept (Neon Dash) from database, routes, sitemap, and UI.
    - Clarified **Muhammad Syukur** as Founder & Lead Engineer with links to `syukur.dev` and `@SyukurGit`.
    - Honestly documented AI-assisted engineering using **Claude Code**.
    - Created clear demarcation for **Founder Engineering Work** (Pascasarjana, Perpustakaan, Tokenetic) and **Research**.
@@ -56,7 +56,7 @@ During the audit, five primary verification vulnerabilities were detected:
    - Added Schema.org `Organization` and `SoftwareApplication` JSON-LD graph.
 
 2. **Added Chronological Build Log (`app/(public)/updates/page.tsx`)**:
-   - Documented verifiable timeline from Dec 2025 inception, Feb 2026 Telegram bot integration, May 2026 security research, July 2026 Neon Dash prototyping, to August-October 2026 balance engine optimizations.
+   - Documented verifiable timeline from Dec 2025 inception, Feb 2026 Telegram bot integration, May 2026 security research, to August-October 2026 balance engine optimizations.
 
 3. **Created Trust & Privacy Policies (`app/(public)/privacy/page.tsx` & `terms/page.tsx`)**:
    - Disclosed operating entity, data handling principles for `a76labs.online` and `Dompet Pintar`.
@@ -115,10 +115,6 @@ During the audit, five primary verification vulnerabilities were detected:
    │      ├── Status: Live & Maintained
    │      └── Backend Repo: github.com/SyukurGit/be-moneybot (Internal Codename)
    │
-   ├── Active R&D Prototype: Neon Dash
-   │      ├── URL: a76labs.online/products/neon-dash
-   │      └── Status: Active Prototype (WebSocket Telemetry)
-   │
    ├── Founder Engineering Work (Institutional / Client):
    │      ├── Pascasarjana UIN Ar-Raniry Portal (en.pps.ar-raniry.ac.id)
    │      ├── UPT Perpustakaan Integration (admin.opac.ar-raniry.ac.id)
@@ -139,9 +135,10 @@ During the audit, five primary verification vulnerabilities were detected:
   - Honest legal/financial disclaimer preventing regulatory misunderstandings.
   - Transparent data handling policy for privacy and account deletion.
 
-- **Neon Dash**:
-  - Truthfully presented as an active engineering prototype exploring low-overhead WebSocket telemetry and D3.js visualization.
-  - Not inflated into a mature commercial enterprise monitoring suite.
+- **Dummy Project Elimination**:
+  - The founder confirmed Neon Dash was a conceptual dummy display rather than active maintained software.
+  - Neon Dash was purged completely from Turso DB, product listings, detail pages, sitemap, footer, and build logs to guarantee zero false claims.
+  - Permanent redirect (308) was instituted from `/products/neon-dash` to `/products`.
 
 ---
 

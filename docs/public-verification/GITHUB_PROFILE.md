@@ -47,7 +47,6 @@ Backend & systems engineer focused on Go, Next.js, and application access contro
 
 #### 🚀 What I Build
 - **[Dompet Pintar](https://dompetpintar.a76labs.online)** — Personal cashflow management with web dashboard & Telegram bot.
-- **[Neon Dash](https://www.a76labs.online/products/neon-dash)** — Lightweight real-time server telemetry prototype.
 - **[A76LABS](https://www.a76labs.online)** — Founder-led early-stage software startup based in Banda Aceh, Indonesia.
 
 #### 🛡️ Research & Institutional Systems

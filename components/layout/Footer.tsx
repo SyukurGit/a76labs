@@ -65,7 +65,6 @@ export async function Footer() {
             <h4 className="text-xs font-bold text-gray-950 uppercase tracking-wider mb-4">Focus</h4>
             <ul className="space-y-2.5 text-xs text-gray-600">
               <li><Link href="/products/dompet-pintar" className="hover:text-gray-950 transition-colors font-medium text-gray-900">Dompet Pintar (Live)</Link></li>
-              <li><Link href="/products/neon-dash" className="hover:text-gray-950 transition-colors">Neon Dash (Prototype)</Link></li>
               <li><Link href="/work/pascasarjana" className="hover:text-gray-950 transition-colors">Pascasarjana UIN (Portal)</Link></li>
               <li><Link href="/work/perpustakaan" className="hover:text-gray-950 transition-colors">Library Operations (Integration)</Link></li>
               <li><Link href="/research/least-privilege-jit" className="hover:text-gray-950 transition-colors">Security Research (LP/JIT)</Link></li>
