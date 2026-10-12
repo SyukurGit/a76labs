@@ -20,7 +20,7 @@ On `syukur.dev` and the legacy website, the LinkedIn link pointed to `https://ww
 
   Key Responsibilities & Deliverables:
   • Architected and launched Dompet Pintar (dompetpintar.a76labs.online), a personal cashflow management tool with web dashboard and Telegram bot integration.
-  • Researched and prototyped lightweight telemetry and access control engines (Go, Next.js, Turso/SQLite).
+  • Engineered and maintained digital products, backend APIs, and access control research prototypes (Go, Next.js, Turso/SQLite).
   • Maintained production uptime, database migrations, and security compliance.
   ```
 

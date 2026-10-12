@@ -82,12 +82,12 @@ export default function HomePage() {
             </div>
 
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-gray-950 mb-6 leading-[1.12]">
-              Practical software products, <br className="hidden sm:inline" />
-              built and operated with <span className="text-[#027FDB]">disciplined engineering</span>.
+              Practical digital products &amp; <br className="hidden sm:inline" />
+              <span className="text-[#027FDB]">systems engineering</span>.
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-600 mb-10 max-w-2xl sm:mx-auto leading-relaxed">
-              A76LABS is a founder-led early-stage software startup based in Indonesia. We build, operate, and maintain focused digital products for real-world utility—from cashflow tracking to systems telemetry.
+              A76LABS is a founder-led software venture based in Banda Aceh, Indonesia. We build and operate our own digital products while developing practical web systems, software integrations, and institutional workflows.
             </p>
 
             <div className="flex flex-col sm:flex-row sm:justify-center gap-3 sm:gap-4 mb-6">
@@ -95,7 +95,7 @@ export default function HomePage() {
                 href="/products"
                 className="inline-flex items-center justify-center px-6 py-3.5 rounded-lg font-semibold bg-gray-950 text-white hover:bg-gray-800 transition-colors shadow-sm text-sm"
               >
-                <span>Explore Products</span>
+                <span>Flagship Product</span>
                 <ArrowRight size={16} className="ml-2" />
               </Link>
               <a
@@ -108,15 +108,15 @@ export default function HomePage() {
                 <ArrowUpRight size={15} className="ml-1.5" />
               </a>
               <Link
-                href="/about"
+                href="/work"
                 className="inline-flex items-center justify-center px-6 py-3.5 rounded-lg font-semibold bg-gray-50 border border-gray-200 text-gray-700 hover:bg-gray-100 transition-colors text-sm"
               >
-                Company Background
+                Selected Engineering Work
               </Link>
             </div>
 
             <p className="text-xs font-mono text-gray-500">
-              Product-first · Founder-led · Operating since late 2025 · Banda Aceh, Indonesia
+              Founder-led venture · Product &amp; systems engineering · Operating since late 2025 · Banda Aceh, Indonesia
             </p>
           </div>
         </section>
@@ -129,7 +129,7 @@ export default function HomePage() {
                 <div className="flex items-center gap-2">
                   <Building2 size={16} className="text-[#027FDB]" />
                   <span className="text-xs font-mono uppercase tracking-wider text-gray-500 font-semibold">
-                    Company Snapshot & Verified Facts
+                    Company Snapshot &amp; Verified Facts
                   </span>
                 </div>
                 <span className="text-xs font-mono text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200 font-medium">
@@ -141,7 +141,7 @@ export default function HomePage() {
                 <div>
                   <span className="text-gray-400 block mb-1 font-mono uppercase tracking-wider text-[10px]">Entity</span>
                   <p className="font-bold text-gray-950 text-sm">A76LABS</p>
-                  <p className="text-gray-500 text-[11px] mt-0.5">Software Startup</p>
+                  <p className="text-gray-500 text-[11px] mt-0.5">Software Venture</p>
                 </div>
                 <div>
                   <span className="text-gray-400 block mb-1 font-mono uppercase tracking-wider text-[10px]">Founder</span>
@@ -159,9 +159,9 @@ export default function HomePage() {
                   <p className="text-gray-500 text-[11px] mt-0.5">Late 2025 (~10 mos)</p>
                 </div>
                 <div>
-                  <span className="text-gray-400 block mb-1 font-mono uppercase tracking-wider text-[10px]">Live Product</span>
+                  <span className="text-gray-400 block mb-1 font-mono uppercase tracking-wider text-[10px]">Owned Product</span>
                   <p className="font-bold text-gray-950 text-sm">Dompet Pintar</p>
-                  <p className="text-emerald-600 text-[11px] mt-0.5 font-medium">Live & Maintained</p>
+                  <p className="text-emerald-600 text-[11px] mt-0.5 font-medium">Live &amp; Maintained</p>
                 </div>
                 <div>
                   <span className="text-gray-400 block mb-1 font-mono uppercase tracking-wider text-[10px]">Contact</span>
@@ -413,9 +413,9 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 mb-8 pb-4 border-b border-gray-100">
               <div>
                 <span className="text-xs font-mono uppercase tracking-wider text-gray-500 font-semibold">Founder Engineering Track Record</span>
-                <h2 className="text-3xl font-extrabold text-gray-950 mt-1">Institutional Systems & Integrations</h2>
+                <h2 className="text-3xl font-extrabold text-gray-950 mt-1">Institutional Systems &amp; Integrations</h2>
                 <p className="text-gray-600 text-sm mt-1">
-                  Professional systems built and maintained by founder Muhammad Syukur for operational clients.
+                  Practical web systems and software integrations developed by founder Muhammad Syukur during institutional engagements.
                 </p>
               </div>
               <Link 
@@ -428,10 +428,10 @@ export default function HomePage() {
 
             <div className="p-4 rounded-xl border border-blue-200 bg-blue-50/50 text-xs text-blue-950 leading-relaxed mb-8 font-mono space-y-1">
               <div>
-                <strong>Verifiable Public Proof & Institutional Attribution:</strong> These operational systems were built by founder Muhammad Syukur. Their production status and founder authorship can be audited directly on live state university portals (for example, the active footer watermark on <a href="https://en.pps.ar-raniry.ac.id/" target="_blank" rel="noopener noreferrer" className="underline font-bold text-[#027FDB]">en.pps.ar-raniry.ac.id</a> linking to <em>syukur.dev</em>).
+                <strong>Verifiable Public Proof &amp; Institutional Attribution:</strong> These operational systems were engineered by founder Muhammad Syukur during institutional and internship roles at Universitas Islam Negeri Ar-Raniry. Their production status and founder authorship can be audited directly on live state university portals (such as the active developer watermark on <a href="https://en.pps.ar-raniry.ac.id/" target="_blank" rel="noopener noreferrer" className="underline font-bold text-[#027FDB]">en.pps.ar-raniry.ac.id</a> linking to <em>syukur.dev</em>).
               </div>
               <div className="text-[11px] text-blue-800">
-                <strong>Demarcation:</strong> Documented here as proof of technical competence, not as proprietary A76LABS SaaS products.
+                <strong>Demarcation:</strong> Documented here as factual proof of engineering competence supporting A76LABS, not as corporate A76LABS vendor contracts or proprietary SaaS products.
               </div>
             </div>
 

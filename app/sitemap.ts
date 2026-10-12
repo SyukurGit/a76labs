@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://www.a76labs.online";
-  const now = new Date("2026-10-09T00:00:00.000Z");
+  const now = new Date("2026-10-12T00:00:00.000Z");
 
   return [
     {

@@ -64,7 +64,7 @@ export default function PerpustakaanCaseStudy() {
 
         {/* Framing notice */}
         <div className="p-4 rounded-xl border border-amber-200/80 bg-amber-50/50 text-xs text-amber-900 leading-relaxed mb-10 font-mono">
-          <strong>Framing Notice:</strong> This system was engineered and integrated by founder Muhammad Syukur for UPT Perpustakaan UIN Ar-Raniry. A76LABS presents this case study as documented engineering evidence of backend system integration.
+          <strong>Framing Notice:</strong> This system was engineered and integrated by founder Muhammad Syukur for UPT Perpustakaan UIN Ar-Raniry during his institutional IT engagement. A76LABS presents this case study as documented engineering evidence of backend system integration, not as a commercial company contract.
         </div>
 
         {/* Body */}

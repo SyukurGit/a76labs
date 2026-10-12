@@ -62,7 +62,7 @@ export default function PascasarjanaCaseStudy() {
         </header>
 
         <div className="p-4 rounded-xl border border-amber-200/80 bg-amber-50/50 text-xs text-amber-900 leading-relaxed mb-10 font-mono">
-          <strong>Framing Notice:</strong> This system was developed and is maintained by founder Muhammad Syukur as primary developer for Pascasarjana UIN Ar-Raniry. A76LABS documents this project as verifiable engineering evidence and does not claim legal institutional ownership.
+          <strong>Framing Notice:</strong> This system was developed and is maintained by founder Muhammad Syukur as primary developer for Pascasarjana UIN Ar-Raniry during his institutional engagement. A76LABS documents this project as verifiable engineering evidence and does not claim commercial vendor contracts or institutional ownership.
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">

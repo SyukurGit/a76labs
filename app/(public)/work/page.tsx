@@ -24,8 +24,8 @@ export default function SelectedWorkPage() {
         </div>
 
         <div className="p-5 rounded-xl border border-amber-200/80 bg-amber-50/50 text-xs text-amber-900 leading-relaxed mb-12 font-mono">
-          <strong className="font-semibold block mb-1">Credibility & Ownership Framing</strong>
-          Institutional systems presented in this section were developed and integrated by founder Muhammad Syukur for institutional clients and operational environments. A76LABS does not claim company ownership of institutional assets; they are documented here to provide transparent, verifiable engineering evidence.
+          <strong className="font-semibold block mb-1">Attribution &amp; Institutional Separation</strong>
+          Institutional systems presented in this section were engineered and integrated by founder Muhammad Syukur during institutional and internship roles at Universitas Islam Negeri Ar-Raniry. A76LABS does not claim commercial contracts or company ownership of institutional assets; they are presented here as verifiable engineering evidence supporting the founder&apos;s track record.
         </div>
 
         <div className="space-y-8">

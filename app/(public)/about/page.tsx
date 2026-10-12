@@ -57,13 +57,13 @@ export default function AboutPage() {
         {/* Header */}
         <div className="border-b border-gray-100 pb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-gray-50 text-xs font-mono text-gray-700 mb-4">
-            Founder-Led Software Startup
+            Founder-Led Software Venture
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-950 mb-4">
             About A76LABS
           </h1>
           <p className="text-lg sm:text-xl text-gray-700 font-medium leading-relaxed max-w-3xl">
-            A76LABS is a founder-led early-stage software startup based in Banda Aceh, Indonesia. We build, operate, and maintain focused digital products for real-world utility—from personal cashflow management to systems telemetry.
+            A76LABS is a founder-led software venture based in Banda Aceh, Indonesia. We build and operate our own digital products while developing practical web systems, software integrations, and institutional workflows.
           </p>
         </div>
 
@@ -77,7 +77,7 @@ export default function AboutPage() {
               </h2>
             </div>
             <span className="text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-              Active Startup
+              Active Venture
             </span>
           </div>
 
@@ -85,7 +85,7 @@ export default function AboutPage() {
             <div className="p-3.5 rounded-lg bg-gray-50/70 border border-gray-100">
               <span className="text-gray-400 block mb-0.5 font-mono uppercase text-[10px]">Entity Name</span>
               <p className="font-bold text-gray-950 text-sm">A76LABS</p>
-              <p className="text-gray-500 text-[11px] mt-0.5">Software Venture / Startup</p>
+              <p className="text-gray-500 text-[11px] mt-0.5">Software Venture (Founder-Led)</p>
             </div>
             <div className="p-3.5 rounded-lg bg-gray-50/70 border border-gray-100">
               <span className="text-gray-400 block mb-0.5 font-mono uppercase text-[10px]">Founder & Leadership</span>
@@ -95,7 +95,7 @@ export default function AboutPage() {
             <div className="p-3.5 rounded-lg bg-gray-50/70 border border-gray-100">
               <span className="text-gray-400 block mb-0.5 font-mono uppercase text-[10px]">Operating Timeline</span>
               <p className="font-bold text-gray-950 text-sm">Operating Since Late 2025</p>
-              <p className="text-gray-500 text-[11px] mt-0.5">Domain registered Dec 16, 2025</p>
+              <p className="text-gray-500 text-[11px] mt-0.5">Domain: Dec 16, 2025 · Unincorporated</p>
             </div>
             <div className="p-3.5 rounded-lg bg-gray-50/70 border border-gray-100">
               <span className="text-gray-400 block mb-0.5 font-mono uppercase text-[10px]">Operating Base</span>
@@ -118,10 +118,10 @@ export default function AboutPage() {
         {/* Narrative & Philosophy */}
         <section className="space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed">
           <p>
-            A76LABS was established to design, develop, and operate practical software tools that address clear friction points in daily workflows. Rather than pursuing speculative trends, heavy venture structures, or artificial complexity, we operate with a lean, disciplined engineering ethos: identify a concrete problem, ship a focused solution, and maintain it with rigor.
+            A76LABS was established to design, develop, and operate practical software tools that address clear friction points in daily workflows. Rather than pursuing speculative trends, heavy corporate structures, or artificial complexity, we operate with a lean, disciplined engineering ethos: identify a concrete problem, ship a focused solution, and maintain it with rigor.
           </p>
           <p>
-            Our core product focus is personal and operational utility. Our flagship application, <strong>Dompet Pintar</strong>, provides a personal cashflow management platform combining an interactive web dashboard with an on-the-go Telegram bot for zero-friction daily expense capture. Alongside our live product operations, we maintain an engineering research track focused on robust data architectures, pragmatic automation, and application security.
+            Our operational activity encompasses two complementary tracks: first, our owned flagship product, <strong>Dompet Pintar</strong>, providing a personal cashflow management platform combining an interactive web dashboard with an on-the-go Telegram bot for zero-friction daily expense capture; and second, practical web-system development, software integrations, and application security research developed by founder Muhammad Syukur.
           </p>
         </section>
 
