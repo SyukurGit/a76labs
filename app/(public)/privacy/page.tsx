@@ -47,8 +47,8 @@ export default function PrivacyPage() {
             <div className="p-4 rounded-xl bg-gray-50 border border-gray-200 font-mono text-xs text-gray-800 flex items-center gap-2">
               <Mail size={14} className="text-[#027FDB]" />
               <span>Official Inquiries:</span>
-              <a href="mailto:founder@a76labs.online" className="font-semibold text-gray-950 hover:underline">
-                founder@a76labs.online
+              <a href="mailto:contact@a76labs.online" className="font-semibold text-gray-950 hover:underline">
+                contact@a76labs.online
               </a>
             </div>
           </section>
@@ -125,7 +125,7 @@ export default function PrivacyPage() {
               <div className="flex items-start gap-2.5">
                 <Trash2 size={16} className="text-red-600 shrink-0 mt-0.5" />
                 <p className="leading-relaxed">
-                  <strong>Account & Data Deletion:</strong> You may request complete deletion of your account and all associated transaction entries by emailing <a href="mailto:founder@a76labs.online" className="font-semibold text-gray-950 underline">founder@a76labs.online</a> with your registered email address. All database records and session tokens will be permanently purged within 7 business days.
+                  <strong>Account & Data Deletion:</strong> You may request complete deletion of your account and all associated transaction entries by emailing <a href="mailto:contact@a76labs.online" className="font-semibold text-gray-950 underline">contact@a76labs.online</a> with your registered email address. All database records and session tokens will be permanently purged within 7 business days.
                 </p>
               </div>
             </div>

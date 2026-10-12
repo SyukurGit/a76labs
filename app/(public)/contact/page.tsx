@@ -32,11 +32,11 @@ export default function ContactPage() {
                 Direct Email
               </h2>
               <a
-                href="mailto:founder@a76labs.online"
+                href="mailto:contact@a76labs.online"
                 className="flex items-center gap-2 text-sm font-semibold text-gray-950 hover:text-[#027FDB] transition-colors break-all"
               >
                 <Mail size={16} className="text-[#027FDB] shrink-0" />
-                <span>founder@a76labs.online</span>
+                <span>contact@a76labs.online</span>
               </a>
               <p className="text-xs text-gray-500 leading-relaxed">
                 Direct mailbox to the founder. We review all incoming inquiries.

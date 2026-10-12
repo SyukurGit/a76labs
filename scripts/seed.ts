@@ -15,7 +15,7 @@ async function main() {
     const hashedPassword = await bcrypt.hash("admin123", 10);
     
     await db.insert(users).values({
-      email: "founder@a76labs.online",
+      email: "contact@a76labs.online",
       passwordHash: hashedPassword,
     }).onConflictDoNothing({ target: users.email });
 
@@ -24,7 +24,7 @@ async function main() {
     const settingsList = [
       { key: "site_title", value: "A76LABS" },
       { key: "site_description", value: "Founder-led early-stage software startup building and operating practical digital products from Indonesia. Led by founder Muhammad Syukur." },
-      { key: "contact_email", value: "founder@a76labs.online" },
+      { key: "contact_email", value: "contact@a76labs.online" },
       { key: "social_github", value: "https://github.com/SyukurGit" },
       { key: "social_twitter", value: "https://x.com/a76labs" },
       { key: "founder_site", value: "https://syukur.dev" },

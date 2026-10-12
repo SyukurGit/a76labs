@@ -27,5 +27,5 @@ Current Products & R&D:
 Engineering and operations are led directly by founder Muhammad Syukur.
 
 Website: https://www.a76labs.online
-Inquiries: founder@a76labs.online
+Inquiries: contact@a76labs.online
 ```

@@ -47,7 +47,7 @@ export const messages = sqliteTable("messages", {
 
 // 5. SITE SETTINGS (Key-Value Store)
 // key="site_title", value="A76LABS"
-// key="contact_email", value="founder@a76labs.online"
+// key="contact_email", value="contact@a76labs.online"
 export const siteSettings = sqliteTable("site_settings", {
   key: text("key").primaryKey(),
   value: text("value").notNull(),

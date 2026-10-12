@@ -65,8 +65,8 @@ export function SettingsForm({ initialData }: SettingsFormProps) {
           <input 
             type="email" 
             name="contact_email" 
-            defaultValue={initialData.contact_email || "founder@a76labs.online"}
-            placeholder="founder@a76labs.online"
+            defaultValue={initialData.contact_email || "contact@a76labs.online"}
+            placeholder="contact@a76labs.online"
             className="w-full px-3.5 py-2.5 text-sm bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-black"
           />
         </div>

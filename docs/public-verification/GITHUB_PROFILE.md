@@ -54,5 +54,5 @@ Backend & systems engineer focused on Go, Next.js, and application access contro
 - **Institutional Portals**: Web systems for Universitas Islam Negeri Ar-Raniry.
 
 🌐 **Website**: [a76labs.online](https://www.a76labs.online) · [syukur.dev](https://syukur.dev)  
-📫 **Contact**: founder@a76labs.online
+📫 **Contact**: contact@a76labs.online
 ```

@@ -86,7 +86,7 @@ const MILESTONES: Milestone[] = [
     description: "Formally founded A76LABS as a founder-led software venture in Banda Aceh, Indonesia. Secured official domain a76labs.online on December 16, 2025, and deployed primary web infrastructure.",
     details: [
       "Registered official company domain a76labs.online (December 16, 2025).",
-      "Configured official domain email founder@a76labs.online with MX routing.",
+      "Configured official domain email contact@a76labs.online with MX routing.",
       "Deployed centralized production platform on Vercel with Turso SQLite backend."
     ]
   },

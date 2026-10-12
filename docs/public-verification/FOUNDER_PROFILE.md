@@ -40,4 +40,4 @@ Keep Pascasarjana UIN Ar-Raniry and UPT Perpustakaan, but label clearly:
 ### 5. Fix Social Links
 - Replace `href="https://www.linkedin.com/"` with your actual LinkedIn vanity URL (e.g. `https://www.linkedin.com/in/muhammad-syukur-...`).
 - Ensure GitHub links to `https://github.com/SyukurGit`.
-- Add official company email: `founder@a76labs.online`.
+- Add official company email: `contact@a76labs.online`.

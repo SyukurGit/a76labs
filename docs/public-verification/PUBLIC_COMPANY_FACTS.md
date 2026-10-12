@@ -10,7 +10,7 @@
 | **Operating Base** | Banda Aceh, Aceh, Indonesia | Domain DNS, founder location | VERIFIED |
 | **Operating Since** | Late 2025 | Hostinger RDAP (Dec 16, 2025), Git (Dec 17, 2025) | VERIFIED |
 | **Primary Domain** | a76labs.online (canonical: www.a76labs.online) | DNS A / CNAME records on Vercel | VERIFIED |
-| **Official Contact Email** | founder@a76labs.online | ImprovMX DNS MX records | VERIFIED |
+| **Official Contact Email** | contact@a76labs.online | ImprovMX DNS MX records | VERIFIED |
 | **Flagship Product** | Dompet Pintar (Live) | dompetpintar.a76labs.online | VERIFIED |
 | **Internal Codename** | MoneyBot (early backend prototype) | Git repo `be-moneybot` (Nov 2025) | VERIFIED |
 | **Founder Portfolio** | https://syukur.dev | Live Vercel deployment | VERIFIED |

@@ -86,7 +86,7 @@ During the audit, five primary verification vulnerabilities were detected:
 - **Operating Location**: Banda Aceh, Aceh, Indonesia (WIB UTC+7) (Verified in DNS, git timestamps, university records).
 - **Operating Timeline**: Operating since late 2025 (Hostinger RDAP registration: `2025-12-16T07:04:54Z`; Git repo: `2025-12-17T04:12:37Z`).
 - **Live Flagship Product**: Dompet Pintar deployed on `https://dompetpintar.a76labs.online` (Verified: HTTP 200, active Next.js/Go ledger app).
-- **Contact Channel**: `founder@a76labs.online` (Verified: ImprovMX DNS MX records configured and routing).
+- **Contact Channel**: `contact@a76labs.online` (Verified: ImprovMX DNS MX records configured and routing).
 - **AI Engineering**: Claude Code utilized in local development workflows (Verified).
 
 ---
@@ -175,7 +175,7 @@ Anthropic requires startups to be founded within the last 5 years or funded with
 
 - **Canonical Origin**: `https://www.a76labs.online`
 - **Apex Domain Redirects**: Both `a76labs.online` and `www.a76labs.online` return HTTP 200 on Vercel with matching SSL certificates.
-- **Company Email**: `founder@a76labs.online` verified via active MX DNS records on ImprovMX.
+- **Company Email**: `contact@a76labs.online` verified via active MX DNS records on ImprovMX.
 - **Email Forwarding**: Incoming inquiries route to the founder personal mailbox.
 
 ---

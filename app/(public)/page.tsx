@@ -42,7 +42,7 @@ const jsonLd = {
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "email": "founder@a76labs.online",
+        "email": "contact@a76labs.online",
         "contactType": "founder inquiry"
       },
       "sameAs": [
@@ -624,10 +624,10 @@ export default function HomePage() {
                   Send a Message
                 </Link>
                 <a
-                  href="mailto:founder@a76labs.online"
+                  href="mailto:contact@a76labs.online"
                   className="inline-flex items-center justify-center px-6 py-3 rounded-lg text-xs font-semibold border border-gray-700 text-gray-300 hover:text-white hover:border-gray-500 transition-colors"
                 >
-                  founder@a76labs.online
+                  contact@a76labs.online
                 </a>
               </div>
             </div>
