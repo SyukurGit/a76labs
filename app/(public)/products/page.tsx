@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 import { ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
 
@@ -35,20 +36,28 @@ export default function ProductsPage() {
               </div>
               <h2 className="text-3xl font-extrabold text-gray-950">Dompet Pintar</h2>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-2.5">
               <Link
                 href="/products/dompet-pintar"
-                className="text-xs font-semibold px-4 py-2.5 rounded-lg border border-gray-200 text-gray-800 hover:bg-gray-50 transition-colors flex items-center gap-1.5"
+                className="text-xs font-semibold px-3.5 py-2 rounded-lg border border-gray-200 text-gray-800 hover:bg-gray-50 transition-colors flex items-center gap-1.5"
               >
-                Detailed Specification <ArrowRight size={13} />
+                Specification <ArrowRight size={13} />
               </Link>
+              <a
+                href="https://t.me/DompetPintar_A76Labs_Bot"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-semibold px-4 py-2 rounded-lg bg-[#027FDB] text-white hover:bg-blue-600 transition-colors flex items-center gap-1.5 shadow-sm"
+              >
+                Telegram Bot <ArrowUpRight size={13} />
+              </a>
               <a
                 href="https://dompetpintar.a76labs.online"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-semibold px-5 py-2.5 rounded-lg bg-gray-950 text-white hover:bg-gray-800 transition-colors flex items-center gap-1.5 shadow-sm"
+                className="text-xs font-semibold px-4 py-2 rounded-lg bg-gray-950 text-white hover:bg-gray-800 transition-colors flex items-center gap-1.5 shadow-sm"
               >
-                Launch App <ArrowUpRight size={13} />
+                Launch Web App <ArrowUpRight size={13} />
               </a>
             </div>
           </div>
@@ -127,6 +136,51 @@ export default function ProductsPage() {
                     <span>Lead Engineer:</span>
                     <span className="font-semibold text-gray-950">Muhammad Syukur</span>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Authentic Screenshots Showcase */}
+          <div className="pt-8 border-t border-gray-100 space-y-4">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-[#027FDB] font-semibold">Production Visuals</span>
+                <h3 className="text-base font-bold text-gray-950 mt-0.5">Application Interface Preview</h3>
+              </div>
+              <span className="text-xs font-mono text-gray-400">Authentic application screenshots</span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="rounded-xl border border-gray-200 overflow-hidden bg-white shadow-sm space-y-2">
+                <div className="relative aspect-[16/10] w-full bg-slate-950">
+                  <Image
+                    src="/images/dompet-pintar/dashboard.png"
+                    alt="Dompet Pintar live dashboard view"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, 500px"
+                  />
+                </div>
+                <div className="p-3 text-xs">
+                  <p className="font-bold text-gray-950">Web Dashboard &amp; Arus Kas</p>
+                  <p className="text-gray-500 text-[11px] mt-0.5">Real-time balances, income/expense distributions, and cashflow charts.</p>
+                </div>
+              </div>
+
+              <div className="rounded-xl border border-gray-200 overflow-hidden bg-white shadow-sm space-y-2">
+                <div className="relative aspect-[16/10] w-full bg-slate-950">
+                  <Image
+                    src="/images/dompet-pintar/laporan.png"
+                    alt="Dompet Pintar financial reports and Excel statement downloads"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, 500px"
+                  />
+                </div>
+                <div className="p-3 text-xs">
+                  <p className="font-bold text-gray-950">Laporan &amp; Ekspor Excel</p>
+                  <p className="text-gray-500 text-[11px] mt-0.5">Custom period filtering and direct download of .xlsx financial statements.</p>
                 </div>
               </div>
             </div>

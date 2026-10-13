@@ -80,7 +80,7 @@ export default function ContactPage() {
             <div className="bg-white p-7 sm:p-8 rounded-2xl border border-gray-200 shadow-sm">
               <h2 className="text-xl font-bold text-gray-950 mb-2">Send a Message</h2>
               <p className="text-xs text-gray-500 mb-6">
-                Fill in the form below and we will receive your message in our inbox.
+                Fill in the form below to log a direct message for the founder, or write directly to <a href="mailto:contact@a76labs.online" className="text-gray-900 font-semibold underline">contact@a76labs.online</a>.
               </p>
               <ContactForm />
             </div>

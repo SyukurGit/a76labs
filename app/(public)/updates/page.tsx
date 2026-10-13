@@ -29,7 +29,7 @@ const MILESTONES: Milestone[] = [
     details: [
       "Canonicalized Dompet Pintar product naming across all documentation and repositories.",
       "Established clear demarcation between proprietary products and founder institutional client work.",
-      "Audited robots.txt, canonical links, and OpenGraph metadata to guarantee crawler accessibility for general bots and ClaudeBot.",
+      "Audited robots.txt, canonical links, structured metadata, and sitemap configuration to maintain standard web crawler accessibility and search indexing.",
       "Documented public verification evidence and factual operating timeline."
     ]
   },
@@ -82,10 +82,10 @@ const MILESTONES: Milestone[] = [
   {
     date: "December 2025",
     tag: "Startup Inception",
-    title: "A76LABS Venture Establishment & Official Domain Registration",
-    description: "Formally founded A76LABS as a founder-led software venture in Banda Aceh, Indonesia. Secured official domain a76labs.online on December 16, 2025, and deployed primary web infrastructure.",
+    title: "Venture Establishment & Official Domain Registration",
+    description: "Established A76LABS as an unincorporated founder-led software venture in Banda Aceh, Indonesia. Registered primary domain a76labs.online on December 16, 2025, and deployed core web infrastructure.",
     details: [
-      "Registered official company domain a76labs.online (December 16, 2025).",
+      "Registered official domain a76labs.online (December 16, 2025).",
       "Configured official domain email contact@a76labs.online with MX routing.",
       "Deployed centralized production platform on Vercel with Turso SQLite backend."
     ]
@@ -118,7 +118,7 @@ export default function UpdatesPage() {
         <div className="mb-14 pb-8 border-b border-gray-100">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-200 bg-gray-50 text-xs font-mono text-gray-700 mb-4">
             <Calendar size={13} className="text-[#027FDB]" />
-            Verifiable Company Timeline
+            Operating Milestones &amp; Build Log
           </div>
           <h1 className="text-4xl font-extrabold tracking-tight text-gray-950 mb-4">
             Updates & Build Log

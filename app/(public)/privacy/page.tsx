@@ -65,7 +65,7 @@ export default function PrivacyPage() {
             <ul className="list-disc pl-5 space-y-1.5 text-xs text-gray-600 font-mono">
               <li>We do NOT embed third-party advertising pixels, commercial trackers, or marketing analytics beacons.</li>
               <li>Minimal runtime infrastructure logs (HTTP method, path, response status, IP address) are processed by our hosting provider (Vercel) solely for traffic routing, DDoS mitigation, and uptime monitoring.</li>
-              <li>Contact messages submitted via the on-site contact form are stored in our secure database and routed directly to our founder inbox. We do not sell or share contact details with third parties.</li>
+              <li>Contact messages submitted via the on-site contact form are stored in our database and reviewed directly by the founder via the administrative console. We do not sell or share contact details with third parties.</li>
             </ul>
           </section>
 
@@ -73,7 +73,7 @@ export default function PrivacyPage() {
           <section className="space-y-4">
             <h2 className="text-lg font-bold text-gray-950 flex items-center gap-2">
               <span className="w-1.5 h-4 bg-[#027FDB] rounded-full"></span>
-              3. Dompet Pintar Data Model & Telegram Integration
+              3. Dompet Pintar Data Model &amp; Telegram Integration
             </h2>
             <p>
               Dompet Pintar (<code>dompetpintar.a76labs.online</code>) is our live personal cashflow tracking application. Because financial records require strict confidentiality, we enforce the following engineering standards:
@@ -102,7 +102,7 @@ export default function PrivacyPage() {
             </div>
 
             <p className="text-xs text-gray-600 leading-relaxed">
-              <strong>Telegram Bot Integration:</strong> When linking the Telegram bot (@Tokenetic_Bot or Dompet Pintar bot workflows), messages sent to the bot are processed exclusively to parse transaction commands (e.g. <code>/in</code>, <code>/out</code>, <code>/saldo</code>). Unrelated personal conversations are not archived or analyzed.
+              <strong>Telegram Bot Integration:</strong> When interacting with the Dompet Pintar Telegram bot (<code>@DompetPintar_A76Labs_Bot</code>), messages sent to the bot are processed exclusively to parse cashflow transactions and commands (e.g. <code>/in</code>, <code>/out</code>, <code>/saldo</code>, or quick formats like <code>-20rb Makan</code>). Unrelated chat messages are not stored or analyzed.
             </p>
           </section>
 

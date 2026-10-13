@@ -73,7 +73,7 @@ export default function AboutPage() {
             <div className="flex items-center gap-2">
               <Building2 size={16} className="text-[#027FDB]" />
               <h2 className="text-xs font-mono uppercase tracking-wider text-gray-500 font-semibold">
-                Verified Company Information
+                Operational Profile & Key Facts
               </h2>
             </div>
             <span className="text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">

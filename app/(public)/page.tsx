@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 import { ArrowRight, ArrowUpRight, Cpu, Clock, Building2, User, AlertCircle } from "lucide-react";
 
@@ -129,7 +130,7 @@ export default function HomePage() {
                 <div className="flex items-center gap-2">
                   <Building2 size={16} className="text-[#027FDB]" />
                   <span className="text-xs font-mono uppercase tracking-wider text-gray-500 font-semibold">
-                    Company Snapshot &amp; Verified Facts
+                    Company Snapshot &amp; Overview
                   </span>
                 </div>
                 <span className="text-xs font-mono text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200 font-medium">
@@ -220,8 +221,8 @@ export default function HomePage() {
                       <p className="text-xs text-gray-600">Date-filtered spreadsheet generation for personal bookkeeping audits.</p>
                     </div>
                     <div className="p-4 rounded-xl bg-gray-50 border border-gray-100 space-y-1">
-                      <p className="font-bold text-gray-950 text-xs">Session Isolation</p>
-                      <p className="text-xs text-gray-600">Strictly segregated per-user data boundaries and encrypted storage.</p>
+                      <p className="font-bold text-gray-950 text-xs">Data Boundaries &amp; Auth</p>
+                      <p className="text-xs text-gray-600">Strictly segregated per-user ledgers, salted bcrypt password hashing, and HTTPS transport encryption.</p>
                     </div>
                   </div>
 
@@ -263,22 +264,151 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  <div className="space-y-3 pt-4">
+                  <div className="space-y-2.5 pt-4">
                     <a
                       href="https://dompetpintar.a76labs.online"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full inline-flex items-center justify-center px-5 py-3 rounded-lg font-semibold bg-gray-950 text-white hover:bg-gray-800 transition-colors text-xs shadow-sm"
+                      className="w-full inline-flex items-center justify-center px-4 py-2.5 rounded-lg font-semibold bg-gray-950 text-white hover:bg-gray-800 transition-colors text-xs shadow-sm"
                     >
-                      <span>Launch Dompet Pintar</span>
+                      <span>Launch Web Dashboard</span>
+                      <ArrowUpRight size={14} className="ml-1.5" />
+                    </a>
+                    <a
+                      href="https://t.me/DompetPintar_A76Labs_Bot"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full inline-flex items-center justify-center px-4 py-2.5 rounded-lg font-semibold bg-[#027FDB] text-white hover:bg-blue-600 transition-colors text-xs shadow-sm"
+                    >
+                      <span>Open Telegram Bot (@DompetPintar_A76Labs_Bot)</span>
                       <ArrowUpRight size={14} className="ml-1.5" />
                     </a>
                     <Link
                       href="/products/dompet-pintar"
-                      className="w-full inline-flex items-center justify-center px-5 py-2.5 rounded-lg font-semibold bg-white border border-gray-200 text-gray-800 hover:bg-gray-50 transition-colors text-xs"
+                      className="w-full inline-flex items-center justify-center px-4 py-2 rounded-lg font-semibold bg-white border border-gray-200 text-gray-800 hover:bg-gray-50 transition-colors text-xs"
                     >
                       Read Technical Breakdown →
                     </Link>
+                  </div>
+                </div>
+              </div>
+
+              {/* Authentic Product UI Preview & Concrete Workflow */}
+              <div className="pt-8 border-t border-gray-100 space-y-8">
+                <div>
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                    <div>
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-[#027FDB] font-semibold">Authentic Product Interface</span>
+                      <h4 className="text-lg font-bold text-gray-950 mt-0.5">Live Application Screens</h4>
+                    </div>
+                    <span className="text-xs font-mono text-gray-500">Unmodified production capture</span>
+                  </div>
+
+                  {/* Main Preview: Dashboard */}
+                  <div className="rounded-xl border border-gray-200 overflow-hidden bg-gray-950 shadow-md">
+                    <div className="bg-gray-900 px-4 py-2 flex items-center justify-between text-xs font-mono text-gray-400 border-b border-gray-800">
+                      <div className="flex items-center gap-2">
+                        <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
+                        <span className="text-gray-200 font-semibold">Web Dashboard — dompetpintar.a76labs.online</span>
+                      </div>
+                      <span className="text-[11px] text-gray-500">Live Production UI</span>
+                    </div>
+                    <div className="relative aspect-[16/9] w-full bg-gray-950">
+                      <Image
+                        src="/images/dompet-pintar/dashboard.png"
+                        alt="Dompet Pintar live web dashboard showing balance, cashflow distribution chart, and transaction history"
+                        fill
+                        className="object-cover object-top"
+                        sizes="(max-width: 1024px) 100vw, 1000px"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Secondary Screen Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+                    <div className="p-3.5 rounded-xl border border-gray-200 bg-gray-50/70 space-y-2.5">
+                      <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden border border-gray-200 bg-white">
+                        <Image
+                          src="/images/dompet-pintar/telegram.png"
+                          alt="Dompet Pintar Telegram bot conversational entry"
+                          fill
+                          className="object-contain"
+                          sizes="(max-width: 768px) 100vw, 300px"
+                        />
+                      </div>
+                      <div>
+                        <p className="font-bold text-xs text-gray-950">Conversational Telegram Bot</p>
+                        <p className="text-[11px] text-gray-600 mt-0.5 leading-relaxed">
+                          Instant mobile transaction entry via chat commands (<code className="font-mono text-emerald-700">/start</code>, <code className="font-mono text-emerald-700">-20rb Makan</code>) synced instantly with the web dashboard.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl border border-gray-200 bg-gray-50/70 space-y-2.5">
+                      <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden border border-gray-200 bg-white">
+                        <Image
+                          src="/images/dompet-pintar/laporan.png"
+                          alt="Dompet Pintar monthly report and Excel export view"
+                          fill
+                          className="object-cover object-top"
+                          sizes="(max-width: 768px) 100vw, 300px"
+                        />
+                      </div>
+                      <div>
+                        <p className="font-bold text-xs text-gray-950">Excel Statement Generator</p>
+                        <p className="text-[11px] text-gray-600 mt-0.5 leading-relaxed">
+                          Date-range filtered financial reports with one-click Microsoft Excel (<code className="font-mono text-blue-700">.xlsx</code>) spreadsheet download.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl border border-gray-200 bg-gray-50/70 space-y-2.5">
+                      <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden border border-gray-200 bg-white">
+                        <Image
+                          src="/images/dompet-pintar/input.png"
+                          alt="Dompet Pintar categorized transaction form"
+                          fill
+                          className="object-cover object-top"
+                          sizes="(max-width: 768px) 100vw, 300px"
+                        />
+                      </div>
+                      <div>
+                        <p className="font-bold text-xs text-gray-950">Categorized Accounting</p>
+                        <p className="text-[11px] text-gray-600 mt-0.5 leading-relaxed">
+                          Structured income and expense records with customizable tag taxonomy across segregated physical cash and bank balances.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Concrete 3-Step Flow */}
+                <div className="p-6 rounded-xl bg-gray-50 border border-gray-200 space-y-4">
+                  <h4 className="text-xs font-mono uppercase tracking-wider text-gray-500 font-semibold">
+                    Concrete Production Workflow
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                    <div className="space-y-1">
+                      <span className="font-mono font-bold text-[#027FDB]">Step 1 · Setup</span>
+                      <p className="font-bold text-gray-950">Register Account &amp; Configure Ledgers</p>
+                      <p className="text-gray-600 leading-relaxed">
+                        Create an account on the web application to initialize accounts (Cash, Bank, E-Wallet) and custom spending categories.
+                      </p>
+                    </div>
+                    <div className="space-y-1">
+                      <span className="font-mono font-bold text-emerald-600">Step 2 · Daily Logging</span>
+                      <p className="font-bold text-gray-950">Dual-Channel Rapid Capture</p>
+                      <p className="text-gray-600 leading-relaxed">
+                        Input on-the-go via Telegram bot (<a href="https://t.me/DompetPintar_A76Labs_Bot" target="_blank" rel="noopener noreferrer" className="underline font-mono text-gray-900">@DompetPintar_A76Labs_Bot</a>) in under 5 seconds, or via web form with zero friction.
+                      </p>
+                    </div>
+                    <div className="space-y-1">
+                      <span className="font-mono font-bold text-purple-600">Step 3 · Reconciliation</span>
+                      <p className="font-bold text-gray-950">Monthly Review &amp; Excel Export</p>
+                      <p className="text-gray-600 leading-relaxed">
+                        Review inflow/outflow balance trends on the dashboard and export structured spreadsheet statements for personal records.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -376,31 +506,45 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* AI-ASSISTED ENGINEERING WORKFLOW */}
+        {/* AI-ASSISTED ENGINEERING WORKFLOW & RESEARCH ROADMAP */}
         <section className="px-4 md:px-6">
           <div className="container mx-auto max-w-5xl">
-            <div className="p-8 sm:p-10 rounded-2xl border border-gray-200 bg-gray-50/70 space-y-5">
-              <div className="flex items-center gap-2">
-                <Cpu size={20} className="text-[#027FDB]" />
-                <h3 className="text-xl font-bold text-gray-950">AI-Assisted Engineering Workflow</h3>
+            <div className="p-8 sm:p-10 rounded-2xl border border-gray-200 bg-gray-50/70 space-y-6">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <Cpu size={20} className="text-[#027FDB]" />
+                  <h3 className="text-xl font-bold text-gray-950">AI Tooling &amp; Architecture Roadmap</h3>
+                </div>
+                <span className="text-xs font-mono text-gray-500">
+                  Engineering Leverage · Pragmatic Evaluation
+                </span>
               </div>
 
               <p className="text-sm text-gray-600 leading-relaxed max-w-3xl">
-                A76LABS uses modern AI-assisted engineering workflows, including Claude Code, for codebase exploration, rapid architectural prototyping, test synthesis, debugging, and iterative documentation. This toolchain provides high engineering leverage for a lean, founder-led startup.
+                A76LABS utilizes modern AI-assisted engineering workflows—specifically Claude Code—for codebase navigation, architectural prototyping, test synthesis, and iterative documentation under direct founder verification. We maintain strict demarcation between our current developer toolchain and future model API integrations.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 text-xs text-gray-700 font-mono">
-                <div className="p-4 rounded-xl bg-white border border-gray-200 space-y-1.5">
-                  <p className="font-bold text-gray-950">Engineering Leverage, Not Decorative Claims</p>
-                  <p className="text-gray-600 leading-relaxed">
-                    AI tooling is applied to accelerate execution velocity and code quality, rather than used as superficial marketing claims.
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1 text-xs text-gray-700 font-mono">
+                <div className="p-4 rounded-xl bg-white border border-gray-200 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <p className="font-bold text-gray-950">Current: Claude Code Toolchain</p>
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">Active Daily</span>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed font-sans text-xs">
+                    Applied exclusively as a local CLI accelerator for rapid refactoring, type definitions, and test harness authoring. Every generated line is verified by human engineering leadership before deployment.
                   </p>
                 </div>
-                <div className="p-4 rounded-xl bg-white border border-gray-200 space-y-1.5">
-                  <p className="font-bold text-gray-950">Strict Human Review of Logic & Security</p>
-                  <p className="text-gray-600 leading-relaxed">
-                    Every generated component, schema definition, and access boundary is scrutinized and validated by the founder before production deployment.
+                <div className="p-4 rounded-xl bg-white border border-gray-200 space-y-2">
+                  <div className="flex items-center justify-between">
+                    <p className="font-bold text-gray-950">Planned: Claude API Integration</p>
+                    <span className="text-[10px] px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200">Labs Evaluation</span>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed font-sans text-xs">
+                    Evaluating Claude 3.5 Haiku/Sonnet API for natural language transaction extraction from Indonesian conversational messages. Production applications operate on deterministic commands today; API integration is in active evaluation design.
                   </p>
+                  <Link href="/labs" className="text-xs font-semibold text-[#027FDB] hover:underline inline-flex items-center gap-1 pt-1 font-mono">
+                    View Labs Evaluation Protocol →
+                  </Link>
                 </div>
               </div>
             </div>

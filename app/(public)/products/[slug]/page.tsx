@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 import { ArrowLeft, ArrowUpRight, CheckCircle2, AlertCircle } from "lucide-react";
 
@@ -23,6 +24,7 @@ interface ProductDetail {
   brandingNote?: string;
   disclaimer?: string;
   demoUrl?: string;
+  telegramUrl?: string;
   repoUrl?: string;
   plannedFeatures?: string[];
 }
@@ -48,7 +50,13 @@ const PRODUCTS_DATA: Record<string, ProductDetail> = {
     techStack: ["Next.js", "Go", "Gin Framework", "Tailwind CSS", "Telegram Bot API", "SQLite / Turso"],
     brandingNote: "Dompet Pintar is the official canonical product brand operated by A76LABS. During initial backend prototyping, the service was developed under the internal project codename MoneyBot. All current public instances and documentation operate canonically as Dompet Pintar.",
     disclaimer: "Dompet Pintar is strictly a personal cashflow tracking and bookkeeping utility. It does NOT provide financial advisory services, investment recommendations, automated banking transactions, or regulated financial services.",
-    demoUrl: "https://dompetpintar.a76labs.online"
+    demoUrl: "https://dompetpintar.a76labs.online",
+    telegramUrl: "https://t.me/DompetPintar_A76Labs_Bot",
+    plannedFeatures: [
+      "Claude API evaluation protocol for structured transaction extraction from Indonesian conversational messages",
+      "Automated recurrent expense detection and period-end budget exhaustion warnings",
+      "Multi-currency conversion layer for cross-border ledger balancing"
+    ]
   }
 };
 
@@ -135,7 +143,17 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 bg-gray-950 text-white px-5 py-2.5 rounded-lg text-xs font-semibold hover:bg-gray-800 transition-colors shadow-sm"
               >
-                Launch Live App <ArrowUpRight size={13} />
+                Launch Web App <ArrowUpRight size={13} />
+              </a>
+            )}
+            {product.telegramUrl && (
+              <a
+                href={product.telegramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 bg-[#027FDB] text-white px-5 py-2.5 rounded-lg text-xs font-semibold hover:bg-blue-600 transition-colors shadow-sm"
+              >
+                Telegram Bot <ArrowUpRight size={13} />
               </a>
             )}
             {product.repoUrl && (
@@ -190,6 +208,70 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 ))}
               </ul>
             </section>
+
+            {product.slug === "dompet-pintar" && (
+              <section className="space-y-4 pt-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-100 pb-3">
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#027FDB] font-semibold">Production Visuals</span>
+                    <h3 className="text-lg font-bold text-gray-950">Authentic Interface Screens</h3>
+                  </div>
+                  <span className="text-xs font-mono text-gray-400">Captured from live production</span>
+                </div>
+
+                {/* Primary: Dashboard */}
+                <div className="rounded-xl border border-gray-200 overflow-hidden bg-gray-950 shadow-sm">
+                  <div className="bg-gray-900 px-4 py-2 flex items-center justify-between text-xs font-mono text-gray-400 border-b border-gray-800">
+                    <span className="text-gray-200 font-semibold">Web Dashboard — dompetpintar.a76labs.online</span>
+                    <span className="text-[10px] text-emerald-400">Live UI</span>
+                  </div>
+                  <div className="relative aspect-[16/9] w-full bg-gray-950">
+                    <Image
+                      src="/images/dompet-pintar/dashboard.png"
+                      alt="Dompet Pintar live web dashboard"
+                      fill
+                      className="object-cover object-top"
+                      sizes="(max-width: 1024px) 100vw, 800px"
+                    />
+                  </div>
+                </div>
+
+                {/* Secondary Gallery */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  <div className="rounded-xl border border-gray-200 overflow-hidden bg-white shadow-sm space-y-2">
+                    <div className="relative aspect-[4/3] w-full bg-slate-950">
+                      <Image
+                        src="/images/dompet-pintar/telegram.png"
+                        alt="Telegram Bot chat command logging"
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 768px) 100vw, 400px"
+                      />
+                    </div>
+                    <div className="p-3 text-xs">
+                      <p className="font-bold text-gray-950">Telegram Bot Conversational Logging</p>
+                      <p className="text-gray-500 text-[11px] mt-0.5">Quick inputs like /start or -20rb Makan synced instantly with dashboard.</p>
+                    </div>
+                  </div>
+
+                  <div className="rounded-xl border border-gray-200 overflow-hidden bg-white shadow-sm space-y-2">
+                    <div className="relative aspect-[4/3] w-full bg-slate-950">
+                      <Image
+                        src="/images/dompet-pintar/laporan.png"
+                        alt="Monthly financial report and Excel statement export"
+                        fill
+                        className="object-cover object-top"
+                        sizes="(max-width: 768px) 100vw, 400px"
+                      />
+                    </div>
+                    <div className="p-3 text-xs">
+                      <p className="font-bold text-gray-950">Monthly Ledger &amp; Excel Statement</p>
+                      <p className="text-gray-500 text-[11px] mt-0.5">Period filters and .xlsx spreadsheet downloads for personal audits.</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            )}
 
             {product.plannedFeatures && (
               <section className="p-6 rounded-xl border border-blue-100 bg-blue-50/30">
@@ -282,8 +364,8 @@ export default async function ProductDetailPage({ params }: PageProps) {
             </div>
 
             <div className="p-5 rounded-xl border border-gray-200 bg-white text-xs text-gray-500 space-y-2 font-mono">
-              <p className="font-bold text-gray-950">A76LABS Assurance</p>
-              <p>Direct engineering oversight. No fabricated metrics or synthetic claims.</p>
+              <p className="font-bold text-gray-950">Engineering Standards</p>
+              <p>Direct founder engineering oversight, strict data boundaries, and verifiable production implementations.</p>
             </div>
           </aside>
         </div>

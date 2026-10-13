@@ -56,4 +56,18 @@ assert(fs.existsSync("docs/CLAUDE_STARTUPS_READINESS.md"), "Missing readiness re
 assert(fs.existsSync("docs/CLAUDE_STARTUPS_CURRENT_RESEARCH.md"), "Missing current research report");
 assert(fs.existsSync("docs/CLAUDE_STARTUPS_CURRENT_RESEARCH_2026-10-09.md"), "Missing research report archive");
 
+// 9. Tone & factual credibility assertions (no self-proclaimed verification labels)
+const about = fs.readFileSync("app/(public)/about/page.tsx", "utf8");
+assert(!about.includes("Verified Company Information"), "about page must NOT use self-proclaimed 'Verified Company Information'");
+assert(!home.includes("Company Snapshot & Verified Facts"), "home page must NOT use self-proclaimed 'Verified Facts'");
+
+// 10. Crawler marketing narrative removal assertion
+const updates = fs.readFileSync("app/(public)/updates/page.tsx", "utf8");
+assert(!updates.includes("ClaudeBot"), "updates page must NOT boast ClaudeBot optimization in public marketing narrative");
+
+// 11. Authentic product evidence & Labs evaluation
+assert(home.includes("dashboard.png"), "home page must include authentic Dompet Pintar screenshot");
+const labs = fs.readFileSync("app/(public)/labs/page.tsx", "utf8");
+assert(labs.includes("claude-api-evaluation"), "labs page must include Claude API evaluation protocol");
+
 console.log("All forensic audit, dummy removal, and readiness assertions passed successfully!");
