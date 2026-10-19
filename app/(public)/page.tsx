@@ -166,7 +166,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <span className="text-gray-400 block mb-1 font-mono uppercase tracking-wider text-[10px]">Contact</span>
-                  <p className="font-bold text-gray-950 text-sm">contact@</p>
+                  <p className="font-bold text-gray-950 text-sm">team@</p>
                   <p className="text-gray-500 text-[11px] mt-0.5">a76labs.online</p>
                 </div>
               </div>
