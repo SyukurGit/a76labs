@@ -100,8 +100,8 @@ export default function TermsPage() {
             </p>
             <div className="p-4 rounded-xl bg-gray-50 border border-gray-200 font-mono text-xs text-gray-800 flex items-center gap-2">
               <Mail size={14} className="text-[#027FDB]" />
-              <a href="mailto:contact@a76labs.online" className="font-semibold text-gray-950 hover:underline">
-                contact@a76labs.online
+              <a href="mailto:team@a76labs.online" className="font-semibold text-gray-950 hover:underline">
+                team@a76labs.online
               </a>
             </div>
           </section>

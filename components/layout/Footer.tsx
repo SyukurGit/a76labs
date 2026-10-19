@@ -19,7 +19,7 @@ async function getSettings() {
 
 export async function Footer() {
   const settings = await getSettings();
-  const contactEmail = settings.contact_email || "contact@a76labs.online";
+  const contactEmail = settings.contact_email || "team@a76labs.online";
 
   return (
     <footer className="w-full border-t border-gray-100 py-16 mt-24 bg-white text-gray-700">

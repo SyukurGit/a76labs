@@ -32,11 +32,11 @@ export default function ContactPage() {
                 Direct Email
               </h2>
               <a
-                href="mailto:contact@a76labs.online"
+                href="mailto:team@a76labs.online"
                 className="flex items-center gap-2 text-sm font-semibold text-gray-950 hover:text-[#027FDB] transition-colors break-all"
               >
                 <Mail size={16} className="text-[#027FDB] shrink-0" />
-                <span>contact@a76labs.online</span>
+                <span>team@a76labs.online</span>
               </a>
               <p className="text-xs text-gray-500 leading-relaxed">
                 Direct mailbox to the founder. We review all incoming inquiries.
@@ -80,7 +80,7 @@ export default function ContactPage() {
             <div className="bg-white p-7 sm:p-8 rounded-2xl border border-gray-200 shadow-sm">
               <h2 className="text-xl font-bold text-gray-950 mb-2">Send a Message</h2>
               <p className="text-xs text-gray-500 mb-6">
-                Fill in the form below to log a direct message for the founder, or write directly to <a href="mailto:contact@a76labs.online" className="text-gray-900 font-semibold underline">contact@a76labs.online</a>.
+                Fill in the form below to log a direct message for the founder, or write directly to <a href="mailto:team@a76labs.online" className="text-gray-900 font-semibold underline">team@a76labs.online</a>.
               </p>
               <ContactForm />
             </div>

@@ -39,7 +39,7 @@ const jsonLd = {
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "email": "contact@a76labs.online",
+        "email": "team@a76labs.online",
         "contactType": "founder inquiry"
       }
     }
@@ -105,7 +105,7 @@ export default function AboutPage() {
             <div className="p-3.5 rounded-lg bg-gray-50/70 border border-gray-100">
               <span className="text-gray-400 block mb-0.5 font-mono uppercase text-[10px]">Primary Domain & Email</span>
               <p className="font-bold text-gray-950 text-sm">a76labs.online</p>
-              <p className="text-gray-500 text-[11px] mt-0.5">contact@a76labs.online</p>
+              <p className="text-gray-500 text-[11px] mt-0.5">team@a76labs.online</p>
             </div>
             <div className="p-3.5 rounded-lg bg-gray-50/70 border border-gray-100">
               <span className="text-gray-400 block mb-0.5 font-mono uppercase text-[10px]">Flagship Product</span>
@@ -249,8 +249,8 @@ export default function AboutPage() {
           <p>Operating Base: Banda Aceh, Indonesia · WIB (UTC+7)</p>
           <p>
             Official Inquiry:{" "}
-            <a href="mailto:contact@a76labs.online" className="text-gray-900 font-semibold hover:underline">
-              contact@a76labs.online
+            <a href="mailto:team@a76labs.online" className="text-gray-900 font-semibold hover:underline">
+              team@a76labs.online
             </a>
           </p>
         </section>
